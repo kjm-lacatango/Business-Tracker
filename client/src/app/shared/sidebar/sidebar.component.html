@@ -1,0 +1,8 @@
+<div class="sidebar">
+    <div class="tabs">
+        @for (tab of tabs; track $index) {
+            <span (click)="selectTab(tab)" [ngClass]="{active: tab.isActive}">{{ tab.label }}</span>
+        }
+    </div>
+    <button class="btn-primary">Logout</button>
+</div>

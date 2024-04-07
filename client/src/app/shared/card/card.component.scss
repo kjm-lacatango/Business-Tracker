@@ -1,0 +1,9 @@
+.card {
+    @apply tw-border tw-rounded-2xl tw-p-2 tw-bg-white;
+    height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+
+    overflow-x: auto;
+    overflow-y: auto;
+}

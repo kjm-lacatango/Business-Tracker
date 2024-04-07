@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.btn-primary {
+    padding: .5rem 1rem;
+    @apply tw-bg-white tw-font-semibold tw-text-green-500 tw-rounded-xl tw-border-2 tw-border-green-500;
+
+    &:hover {
+        @apply tw-bg-green-500 tw-border-2 tw-text-white;
+    }
+
+    &-solid {
+        padding: .5rem 1rem;
+        @apply tw-bg-green-500 tw-font-semibold tw-text-white tw-rounded-xl tw-border-2 tw-border-green-500;
+
+        &:hover {
+            @apply tw-bg-white tw-border-2 tw-text-green-500;
+        }
+    }
+}
+
+.btn-secondary {
+    padding: .5rem 1rem;
+    @apply tw-bg-white tw-font-semibold tw-text-red-500 tw-rounded-xl tw-border-2 tw-border-red-500;
+
+    &:hover {
+        @apply tw-bg-red-500 tw-border-2 tw-text-white;
+    }
+
+    &-solid {
+        padding: .5rem 1rem;
+        @apply tw-bg-red-500 tw-font-semibold tw-text-white tw-rounded-xl tw-border-2 tw-border-red-500;
+
+        &:hover {
+            @apply tw-bg-white tw-border-2 tw-text-red-500;
+        }
+    }
+}
+
+.disabled {
+    @apply hover:tw-text-white hover:tw-bg-green-300 tw-border-green-300 tw-bg-green-300 tw-cursor-not-allowed;
+}
+
+.input {
+    @apply tw-border tw-rounded-md;
+    outline: none;
+    width: 100%;
+    padding: .2rem .5rem;
+
+    &:hover, &:focus {
+        @apply tw-shadow-green-500 tw-shadow-sm;
+    }
+}
+
+.scroll, body {
+    &::-webkit-scrollbar {
+        @apply tw-h-2 tw-w-2;
+    }
+
+    &::-webkit-scrollbar-track {
+        display: hidden;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        @apply tw-bg-green-600 tw-rounded-xl;
+
+        &:hover {
+            @apply tw-bg-blue-950;
+        }
+    }
+}

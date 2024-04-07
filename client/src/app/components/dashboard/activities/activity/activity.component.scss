@@ -1,0 +1,43 @@
+.activity {
+    @apply tw-h-full;
+
+    .header {
+        @apply tw-grid;
+        grid-template-columns: repeat(3, 1fr);
+        align-items: center;
+
+        span {
+            @apply tw-text-3xl tw-font-semibold tw-text-center;
+        }
+
+        .btn {
+            @apply tw-flex tw-justify-end;
+        }
+    }
+
+    .name {
+        width: 40rem;
+        @apply tw-flex tw-flex-col tw-mt-12;
+    }
+
+    .body-mid, .numbers {
+        @apply tw-grid tw-gap-8 tw-mt-5;
+        grid-template-columns: 1fr 1fr;
+
+        .field {
+            @apply tw-flex tw-flex-col tw-relative;
+
+            .peso {
+                @apply tw-pl-6;
+            }
+
+            .icon {
+                @apply tw-absolute tw-bottom-1 tw-left-2 tw-text-gray-700;
+            }
+        }
+    }
+
+    .note {
+        @apply tw-flex tw-flex-col tw-mt-8;
+    }
+}

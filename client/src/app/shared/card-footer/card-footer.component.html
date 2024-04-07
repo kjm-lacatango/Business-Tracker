@@ -1,0 +1,12 @@
+<div
+    class="footer"
+    [ngStyle]="{
+        padding: padding,
+        'padding-left': (px ?? pl) || padding,
+        'padding-right': (px ?? pr) || padding,
+        'padding-top': (py ?? pt) || padding,
+        'padding-bottom': (py ?? pb) || padding
+    }"
+>
+    <ng-content></ng-content>
+</div>

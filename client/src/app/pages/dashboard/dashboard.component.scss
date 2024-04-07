@@ -1,0 +1,8 @@
+.dashboard {
+    @apply tw-flex;
+
+    .routes {
+        padding: 4.9rem 1rem 1rem 16rem;
+        @apply tw-bg-gray-200 tw-w-full tw-h-screen;
+    }
+}

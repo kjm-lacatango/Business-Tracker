@@ -1,0 +1,21 @@
+.sidebar {
+    position: fixed;
+    background: white;
+    @apply tw-pt-16 tw-pb-6 tw-h-screen tw-flex tw-flex-col tw-w-60 tw-justify-between;
+
+    .tabs {
+        @apply tw-flex tw-flex-col tw-gap-1;
+
+        span {
+            @apply tw-w-full tw-text-xl tw-text-center tw-cursor-pointer tw-py-3;
+
+            &:hover, &.active {
+                @apply tw-bg-gray-200 tw-text-green-500;
+            }
+        }
+    }
+
+    .btn-primary {
+        @apply tw-mx-6
+    }
+}

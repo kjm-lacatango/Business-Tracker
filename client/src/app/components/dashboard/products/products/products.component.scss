@@ -1,0 +1,102 @@
+.products {
+    @apply tw-h-full;
+
+    .title {
+        @apply tw-w-full tw-text-center tw-font-semibold tw-text-3xl;
+    }
+
+    .header {
+        @apply tw-grid tw-mb-4 tw-mt-2;
+        grid-template-columns: repeat(3, 1fr);
+        align-items: center;
+
+        &-right {
+            @apply tw-flex tw-gap-2;
+
+            select {
+                @apply tw-border tw-rounded-md tw-pr-2 tw-cursor-pointer tw-w-full;
+                outline: none;
+                padding: .2rem .5rem .2rem .2rem;
+            }
+        }
+
+        span {
+            @apply tw-text-center tw-text-3xl tw-font-semibold;
+        }
+
+        .btn {
+            @apply tw-flex tw-justify-end;
+        }
+
+        &-table {
+            @apply tw-grid tw-mt-4 tw-px-2;
+            grid-template-columns: 2rem repeat(5, 1fr) 16rem;
+
+            span {
+                @apply tw-text-center tw-font-semibold;
+            }
+        }
+
+        &-table-track {
+            @apply tw-grid tw-items-center tw-text-center tw-font-semibold tw-mt-4 tw-text-nowrap;
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+
+    .tabs {
+        @apply tw-w-full tw-border-b-2 tw-border-gray-200 tw-flex tw-gap-1;
+
+        span {
+            cursor: pointer;
+            @apply tw-bg-gray-200 tw-text-gray-500 tw-font-semibold tw-px-6 tw-py-2 tw-rounded-t-lg;
+
+            &:not(.active):hover {
+                @apply tw-bg-green-300;
+            }
+
+            &.active {
+                @apply tw-bg-green-500 tw-text-white;
+            }
+        }
+    }
+
+    .table-list {
+        grid-template-columns: 2rem auto;
+        margin-bottom: .6rem;
+        align-items: center;
+        height: 3rem;
+        @apply tw-grid tw-border tw-text-nowrap tw-rounded-md tw-cursor-pointer tw-text-center tw-shadow-md tw-shadow-gray-300 tw-px-2;
+
+        .no-checkbox {
+            @apply tw-text-center tw-grid;
+            grid-template-columns: repeat(5, 1fr) 16rem;
+            align-items: center;
+            
+            &:hover {
+                @apply tw-text-gray-400;
+            }
+
+            .note {
+                @apply tw-text-wrap;
+                font-size: .95rem;
+            }
+        }
+
+        &-track {
+            @apply tw-grid tw-items-center tw-text-center;
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+
+    .check {
+        width: .85rem;
+    }
+
+    .total {
+        @apply tw-flex tw-text-nowrap tw-text-2xl tw-justify-end tw-py-4 tw-font-semibold tw-pr-8;
+
+        strong {
+            @apply tw-pl-2;
+        }
+    }
+}

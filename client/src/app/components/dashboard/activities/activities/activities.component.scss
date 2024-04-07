@@ -1,0 +1,83 @@
+.activities {
+    @apply tw-h-full;
+
+    .header {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        align-items: center;
+
+        &-right {
+            @apply tw-flex tw-gap-2;
+
+            select {
+                @apply tw-border tw-rounded-md tw-pr-2 tw-cursor-pointer;
+                outline: none;
+                padding: .2rem .5rem .2rem .2rem;
+            }
+        }
+
+        .btn {
+            @apply tw-flex tw-justify-end;
+        }
+
+        span {
+            @apply tw-text-center tw-text-3xl tw-font-semibold;
+        }
+
+        button {
+            @apply tw-flex tw-justify-end;
+        }
+    }
+
+    .table-header {
+        @apply tw-grid tw-text-center tw-items-center tw-text-nowrap tw-mt-8 tw-font-semibold tw-px-2;
+        grid-template-columns: 2rem 12rem repeat(4, 1fr) 16rem;
+
+        .name {
+            @apply tw-pl-8;
+        }
+    }
+
+    .table-lists {
+        grid-template-columns: 2rem auto;
+        margin-bottom: .6rem;
+        align-items: center;
+        height: 3rem;
+        @apply tw-grid tw-border tw-text-nowrap tw-rounded-md tw-cursor-pointer tw-text-center tw-shadow-md tw-shadow-gray-300 tw-px-2;
+
+        .card-no-checkbox {
+            @apply tw-grid tw-text-center;
+            grid-template-columns: 12rem repeat(4, 1fr) 16rem;
+            align-items: center;
+
+            &:hover {
+                @apply tw-text-gray-400;
+            }
+
+            .note {
+                @apply tw-text-wrap;
+                font-size: .95rem;
+            }
+        }
+    }
+
+    .check {
+        width: .85rem;
+    }
+
+    .name {
+        @apply tw-text-start  tw-pl-4 tw-flex tw-gap-2 tw-items-center;
+
+        img {
+            @apply tw-border tw-border-green-500 tw-h-6 tw-w-6 tw-rounded-full;
+        }
+    }
+
+    .total {
+        @apply tw-flex tw-text-2xl tw-justify-end tw-py-4 tw-font-semibold tw-pr-8;
+
+        strong {
+            @apply tw-pl-2;
+        }
+    }
+}

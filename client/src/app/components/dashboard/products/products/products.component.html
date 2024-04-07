@@ -1,0 +1,101 @@
+<div class="products">
+    <card>
+        <card-header px="2rem" pt="1rem" pb=".5rem" [sticky]="true">
+            <div class="header">
+                <div class="header-right">
+                    @if (tabs[0].active) {
+                        <select>
+                            <option>All</option>
+                            <option>Ice Tea</option>
+                            <option>Waffle</option>
+                            <option>Pizza</option>
+                        </select>
+                        <select>
+                            <option>Day</option>
+                            <option>Week</option>
+                            <option>Month</option>
+                            <option>Year</option>
+                        </select>
+                    }
+                    <input class="input" placeholder="Search..." *ngIf="!tabs[0].active" />
+                </div>
+                <span *ngIf="tabs[0].active">Products</span>
+                <span *ngIf="tabs[1].active">Track</span>
+                <span *ngIf="tabs[2].active">Others</span>
+                <div class="btn">
+                    @if (isDelete) {
+                        <button class="btn-secondary-solid" (click)="onDelete()">Delete</button>
+                    } @else {
+                        <button class="btn-primary-solid" (click)="add()">Add</button> 
+                    }
+                </div>
+            </div>
+
+            <div class="tabs">
+                @for (tab of tabs; track $index) {
+                    <span [ngClass]="{active: tab.active}" (click)="onSelectTab(tab)">{{ tab.text }}</span>
+                }
+            </div>
+
+            @if (tabs[0].active) {
+                <div class="header-table">
+                    <input class="check" type="checkbox" (change)="onCheck()" />
+                    <span>Type</span>
+                    <span>Price</span>
+                    <span>Date</span>
+                    <span>Sold Out</span>
+                    <span>Sales</span>
+                    <span>Note</span>
+                </div>
+            }
+            @if (tabs[1].active) {
+               <div class="header-table-track">
+                    <span>Name of Product</span>
+                    <span>Capital</span>
+                    <span>Sold Out</span>
+                    <span>Total Income</span>
+                </div> 
+            }
+        </card-header>
+        <card-body px="2rem" height="18rem">
+            @if (tabs[0].active) {
+                @for (product of products; track $index) {
+                    <div class="table-list">
+                        <input class="check" type="checkbox" [checked]="product.isChecked" (change)="onCheck(product.id)" />
+                        <div class="no-checkbox" (click)="edit(product.id)">
+                            <span>{{ product.type }}</span>
+                            <span>{{ product.price ? "₱ " + product.price : "None" }}</span>
+                            <span>{{ product.date | date: "MMM dd, YYYY" }}</span>
+                            <span>{{ product.soldOut }}</span>
+                            <span>₱ {{ product.sales }}</span>
+                            <span class="note">{{ product.notes ? product.notes : "None" }}</span>
+                        </div>
+                    </div>
+                }
+            }
+            @if (tabs[1].active) {
+                <div class="table-list-track">
+                    <span>Ice Tea</span>
+                    <span>₱ 50000</span>
+                    <span>1000</span>
+                    <span>₱ 100000</span>
+                </div>
+                <div class="table-list-track">
+                    <span>Milk Tea</span>
+                    <span>₱ 50000</span>
+                    <span>1000</span>
+                    <span>₱ 100000</span>
+                </div>
+                <div class="table-list-track">
+                    <span>Fruit Tea</span>
+                    <span>₱ 50000</span>
+                    <span>1000</span>
+                    <span>₱ 100000</span>
+                </div>
+            }
+        </card-body>
+        <card-footer px="2rem" pb=".5rem" [sticky]="true" *ngIf="!tabs[2].active">
+            <span class="total">{{ tabs[0].active ? 'Total Sales' : 'All Income'}}: <strong>₱ 150,000.00</strong></span> 
+        </card-footer>
+    </card>
+</div>

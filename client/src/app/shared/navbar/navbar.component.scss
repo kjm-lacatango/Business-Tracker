@@ -1,0 +1,33 @@
+.navbar {
+    padding: .5rem 1rem;
+    background: white;
+    z-index: 1;
+    @apply tw-fixed tw-w-full tw-flex tw-justify-between tw-items-center;
+
+    .logo {
+        @apply tw-text-4xl tw-ml-8;
+        color: transparent;
+        -webkit-text-stroke: 1px rgb(65, 65, 65);
+        font-family: 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+    .title {
+        @apply tw-flex tw-items-center tw-text-nowrap tw-gap-4;
+
+        img {
+            @apply tw-border tw-rounded-full tw-h-12 tw-w-12 tw-border-green-500;
+        }
+
+        .text {
+            @apply tw-flex tw-flex-col tw-items-center;
+
+            .name {
+                @apply tw-font-semibold tw-text-lg;
+            }
+
+            .position {
+                @apply tw-text-gray-600 tw-text-sm;
+            }
+        }
+    }
+}

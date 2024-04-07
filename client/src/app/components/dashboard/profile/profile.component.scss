@@ -1,0 +1,30 @@
+.profile {
+    @apply tw-h-full;
+
+    .header {
+        @apply tw-grid tw-items-center;
+        grid-template-columns: 1fr 1fr 1fr;
+
+        span {
+            @apply tw-text-center tw-font-semibold tw-text-3xl;
+        }
+
+        .btn {
+            @apply tw-flex tw-justify-end
+        }
+    }
+
+    .user-icon {
+        margin: 0 auto 0;
+    }
+
+    .complete-name {
+        @apply tw-grid tw-gap-4;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .auth {
+        @apply tw-grid tw-gap-4;
+        grid-template-columns: 1fr 1fr;
+    }
+}
