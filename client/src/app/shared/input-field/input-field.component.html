@@ -1,0 +1,42 @@
+<div class="field" [ngStyle]="{width: width, 'margin-top': mt}">
+    <label [for]="label">{{ label }}:</label>
+    @if (type === "text" || type === "date") {
+        <input class="input" 
+            [ngClass]="{error: (control.dirty || control.touched) && control.errors}" 
+            [id]="label"
+            [type]="type"
+            [formControl]="control"
+            [autocomplete]="autoComplete"
+            [ngStyle]="{'padding-left': pl}"
+        />
+        <ng-content selector=".icon"></ng-content>
+    } @else if (type === "select") {
+        <select class="input" 
+            [ngClass]="{error: (control.dirty || control.touched) && control.errors}" 
+            [id]="label"
+            [formControl]="control"
+            (change)="onChange($event)"
+        >
+            @for (option of options; track $index) {
+                <option [value]="option" [ngStyle]="{'font-size': optionFontSize}">
+                    {{ option }}
+                </option>
+            }
+        </select>
+    } @else if (type === "textarea") {
+        <textarea class="input"
+            [ngClass]="{error: (control.dirty || control.touched) && control.errors}" 
+            [id]="label"
+            [formControl]="control"
+            [cols]="cols"
+            [rows]="rows"
+        >
+        </textarea>
+    }
+    
+    @for (validation of validations; track $index) {
+        @if ((control.dirty || control.touched) && control.hasError(validation.error)) {
+            <span class="error-message">{{ validation.message }}</span>
+        }
+    }
+</div>

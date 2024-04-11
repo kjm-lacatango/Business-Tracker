@@ -1,0 +1,39 @@
+<div class="employee">
+    <card>
+        <card-header px="2rem" pt="1rem">
+            <div class="header">
+                <div class="back">
+                    <icon (click)="back()" type="arrow" color="rgb(6, 165, 6)" hoverColor="rgb(6, 135, 6)" />
+                </div>
+                <span class="title">{{employeeId ? 'Edit' : 'Add' }} Employee</span>
+                <div class="btn">
+                    <button class="btn-primary-solid" [disabled]="form.invalid || isEditOrAddEmployee" (click)="onSave()">
+                        {{employeeId ? 'Save' : 'Add' }}
+                    </button>
+                </div>
+            </div>
+        </card-header>
+        <card-body px="2rem" height="100%">
+            <div class="profile-pic">
+                <!-- <img class="employee-profile" src="#" alt="employee-profile" /> -->
+                <icon type="user-icon" width="150" height="150" hoverColor="rgb(6, 135, 6)" />
+            </div>
+            <div class="full-name">
+                <input-field type="text" label="First Name" [control]="firstName" [validations]="validations['firstName']" />
+                <input-field type="text" label="Middle Name" [control]="middleName" />
+                <input-field type="text" label="Last Name" [control]="lastName" [validations]="validations['lastName']" />
+            </div>
+            <div class="mid">
+                <input-field type="text" label="Age" [control]="age" [validations]="validations['age']" />
+                <input-field type="select" [options]="sexOptions" label="Sex" [control]="sex" [validations]="validations['sex']" />
+                <input-field type="date" label="Started On" [control]="startedOn" [validations]="validations['startedOn']" />
+            </div>
+            <div class="bot">
+                <input-field type="text" label="Position" [control]="position" [validations]="validations['position']" />
+                <input-field type="text" label="Salary" pl="1.5rem" [control]="salary"  [validations]="validations['salary']">
+                    <span class="icon">₱</span>
+                </input-field>
+            </div>
+        </card-body>
+    </card>
+</div>

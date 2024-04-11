@@ -5,18 +5,7 @@ import { CardHeaderComponent } from '../../../../shared/card-header/card-header.
 import { CardBodyComponent } from '../../../../shared/card-body/card-body.component';
 import { CardFooterComponent } from '../../../../shared/card-footer/card-footer.component';
 import { ActivatedRoute, Router } from '@angular/router';
-
-interface Activity {
-  id: string;
-  isChecked: boolean;
-  firstName: string;
-  lastName: string;
-  date: Date;
-  noOfCups: number;
-  sales: number;
-  product: string;
-  note?: string;
-}
+import { Activity } from '../../../../utils/interfaces';
 
 @Component({
   selector: 'app-info',
@@ -38,9 +27,9 @@ export class ActivitiesComponent {
   activities: Activity[] = [
     {id: '1', isChecked: false, firstName: "Steve", lastName: "Doe", date: new Date('05/11/2024'), noOfCups: 127, sales: 14000, product: "Mocha", note: "This is a note from keannu"},
     {id: '2', isChecked: false, firstName: "Steve", lastName: "Doe", date: new Date('05/11/2024'), noOfCups: 127, sales: 14000, product: "Mocha"},
-    {id: '3', isChecked: false, firstName: "Steve", lastName: "Doe", date: new Date('05/11/2024'), noOfCups: 127, sales: 14000, product: "Mocha"},
-    {id: '4', isChecked: false, firstName: "Steve", lastName: "Doe", date: new Date('05/11/2024'), noOfCups: 127, sales: 14000, product: "Mocha"},
-    {id: '5', isChecked: false, firstName: "Steve", lastName: "Doe", date: new Date('05/11/2024'), noOfCups: 127, sales: 14000, product: "Mocha"},
+    {id: '3', isChecked: false, firstName: "Steve", middleName: "de lara", lastName: "Doe", date: new Date('05/11/2024'), noOfCups: 127, sales: 14000, product: "Mocha"},
+    {id: '4', isChecked: false, firstName: "Steve", middleName: "de los santos", lastName: "Doe", date: new Date('05/11/2024'), noOfCups: 127, sales: 14000, product: "Mocha"},
+    {id: '5', isChecked: false, firstName: "Steve", middleName: "Torregoza", lastName: "Doe", date: new Date('05/11/2024'), noOfCups: 127, sales: 14000, product: "Mocha"},
     {id: '6', isChecked: false, firstName: "Steve", lastName: "Doe", date: new Date('05/11/2024'), noOfCups: 127, sales: 14000, product: "Mocha"},
     {id: '7', isChecked: false, firstName: "Steve", lastName: "Doe", date: new Date('05/11/2024'), noOfCups: 127, sales: 14000, product: "Mocha"},
     {id: '8', isChecked: false, firstName: "Steve", lastName: "Doe", date: new Date('05/11/2024'), noOfCups: 127, sales: 14000, product: "Mocha"},
@@ -92,5 +81,12 @@ export class ActivitiesComponent {
 
   navigateTo(route: string) {
     this.router.navigate([route], { relativeTo: this.route });
+  }
+
+  getMiddleInitial(middleName?: string) {
+    if (!middleName) return;
+
+    const initials = middleName.split(' ').map(part => part.charAt(0).toUpperCase()).join('');
+    return initials + ".";
   }
 }

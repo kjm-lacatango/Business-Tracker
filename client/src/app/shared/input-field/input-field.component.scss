@@ -1,0 +1,26 @@
+.field {
+    @apply tw-relative;
+
+    .input {
+        @apply tw-border tw-rounded-md;
+        outline: none;
+        width: 100%;
+        padding: .2rem .5rem;
+
+        &:hover, &:focus {
+            @apply tw-shadow-green-500 tw-shadow-sm;
+        }
+
+        &.error {
+            @apply tw-border-red-500;
+
+            &:hover, &:focus {
+                @apply tw-border-red-500 tw-shadow-red-500 tw-shadow-sm;
+            }
+        }
+    }
+
+    .error-message {
+        @apply tw-bg-red-500 tw-text-sm tw-px-4 tw-py-1 tw-rounded-lg tw-text-white tw-absolute -tw-bottom-8 tw-z-10 tw-left-0;
+    }
+}

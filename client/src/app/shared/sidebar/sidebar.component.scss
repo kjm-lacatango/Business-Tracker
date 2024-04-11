@@ -10,7 +10,8 @@
             @apply tw-w-full tw-text-xl tw-text-center tw-cursor-pointer tw-py-3;
 
             &:hover, &.active {
-                @apply tw-bg-gray-200 tw-text-green-500;
+                color: rgb(6, 165, 6);
+                @apply tw-bg-gray-200;
             }
         }
     }

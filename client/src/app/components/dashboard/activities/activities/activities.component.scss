@@ -2,6 +2,7 @@
     @apply tw-h-full;
 
     .header {
+        @apply tw-mt-2 tw-h-12;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         align-items: center;

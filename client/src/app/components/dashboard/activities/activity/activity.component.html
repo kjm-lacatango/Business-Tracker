@@ -3,56 +3,29 @@
         <card-header px="2rem" pt="1rem">
             <div class="header">
                 <div>
-                    <svg (click)="back()" width="28" height="28" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            opacity="0.992"
-                            fill-rule="evenodd"
-                            clip-rule="evenodd"
-                            d="M9.08203 -0.0195312C9.68098 -0.0195312 10.28 -0.0195312 10.8789 -0.0195312C14.7762 0.486273 17.5562 2.51752 19.2188 6.07422C19.6147 7.04605 19.8686 8.04867 19.9805 9.08203C19.9805 9.68098 19.9805 10.28 19.9805 10.8789C19.4746 14.7762 17.4434 17.5562 13.8867 19.2188C12.9149 19.6147 11.9123 19.8686 10.8789 19.9805C10.28 19.9805 9.68098 19.9805 9.08203 19.9805C5.18465 19.4746 2.40471 17.4433 0.742188 13.8867C0.346247 12.9149 0.0923406 11.9123 -0.0195312 10.8789C-0.0195312 10.28 -0.0195312 9.68098 -0.0195312 9.08203C0.486273 5.18473 2.51752 2.40477 6.07422 0.742188C7.04605 0.346247 8.04867 0.0923406 9.08203 -0.0195312ZM8.80859 5.99609C9.62719 6.01395 9.99828 6.43059 9.92188 7.24609C9.89039 7.36117 9.83832 7.46531 9.76562 7.55859C9.29633 8.02137 8.83406 8.49012 8.37891 8.96484C10.3189 8.99738 12.259 9.01691 14.1992 9.02344C14.7837 9.23062 15.0246 9.64078 14.9219 10.2539C14.7912 10.6189 14.5373 10.8468 14.1602 10.9375C12.2329 10.944 10.3059 10.9636 8.37891 10.9961C8.83406 11.4708 9.29633 11.9396 9.76562 12.4023C10.0977 13.0076 9.97395 13.4959 9.39453 13.8672C9.03328 14.0206 8.69477 13.9815 8.37891 13.75C7.3177 12.6888 6.25652 11.6276 5.19531 10.5664C4.96094 10.1758 4.96094 9.78516 5.19531 9.39453C6.26953 8.32031 7.34375 7.24609 8.41797 6.17188C8.55051 6.10859 8.6807 6.05 8.80859 5.99609Z"
-                            fill="green"
-                        />
-                    </svg>
+                    <icon type="arrow" (click)="back()" color="rgb(6, 165, 6)" hoverColor="rgb(6, 135, 6)"/>
                 </div>
                 <span>{{activityId ? 'Edit' : 'Add' }} Activity</span>
                 <div class="btn">
-                    <button class="btn-primary-solid">{{activityId ? 'Save' : 'Add' }}</button>
+                    <button class="btn-primary-solid" [disabled]="form.invalid" (click)="onSave()">
+                        {{activityId ? 'Save' : 'Add' }}
+                    </button>
                 </div>
             </div>
         </card-header>
         <card-body px="2rem" height="100%">
-            <div class="name">
-               <label for="name">Name:</label>
-                <input class="input" id="name" type="text" [disabled]="!activityId" /> 
-            </div>
-            
+            <input-field width="40rem" mt="3rem" type="text" label="Name" [control]="name" [validations]="validations['name']"  />
             <div class="body-mid">
-                <div class="field">
-                    <label for="product">Product:</label>
-                    <select class="input" id="product">
-                        <option>Ice Tea</option>
-                        <option>pizza</option>
-                    </select>
-                </div>
-                <div class="field">
-                    <label for="date">Date:</label>
-                    <input class="input" id="date" type="date" />
-                </div>
+                <input-field type="select" [options]="products" label="Product" [control]="product" [validations]="validations['product']" />
+                <input-field type="date" label="Date" [control]="date" [validations]="validations['date']" />
             </div>
-            <div class="numbers">
-                <div class="field">
-                    <label for="sold">No of Sold:</label>
-                    <input class="input" id="sold" type="text" />
-                </div>
-                <div class="field">
-                    <label for="sales">Sales:</label>
-                    <input class="input peso" id="sales" type="text" />
+            <div class="body-mid">
+                <input-field type="text" label="No of Sold" [control]="sold" [validations]="validations['sold']" />
+                <input-field type="text" label="Sales" [control]="sales" [validations]="validations['sales']" pl="1.5rem">
                     <span class="icon">₱</span>
-                </div>
+                </input-field>
             </div>
-            <div class="note">
-                <label for="note">(optional) Note:</label>
-                <textarea class="input" id="note" cols="3" rows="3"></textarea>
-            </div>
+            <input-field mt="2.5rem" type="textarea" label="(optional) Note" cols="3" rows="3" [control]="note" />
         </card-body>
     </card>
 </div>

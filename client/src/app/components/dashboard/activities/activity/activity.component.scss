@@ -15,29 +15,13 @@
         }
     }
 
-    .name {
-        width: 40rem;
-        @apply tw-flex tw-flex-col tw-mt-12;
-    }
-
-    .body-mid, .numbers {
+    .body-mid {
         @apply tw-grid tw-gap-8 tw-mt-5;
         grid-template-columns: 1fr 1fr;
 
-        .field {
-            @apply tw-flex tw-flex-col tw-relative;
-
-            .peso {
-                @apply tw-pl-6;
-            }
-
-            .icon {
-                @apply tw-absolute tw-bottom-1 tw-left-2 tw-text-gray-700;
-            }
+        .icon {
+            @apply tw-absolute tw-left-2 tw-text-gray-700;
+            bottom: .3rem;
         }
-    }
-
-    .note {
-        @apply tw-flex tw-flex-col tw-mt-8;
     }
 }

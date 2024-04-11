@@ -1,0 +1,57 @@
+<div class="header-table-track">
+    <span>Graph</span>
+    <span>Name of Product</span>
+    <span>Sold Out</span>
+    <span>All Income</span>
+</div>
+<div class="table-list-track" *ngFor="let track of tracks; index as i">
+    <span class="boxColor" [ngClass]="'color-'+i.toString()"></span>
+    <span>{{ track.productName }}</span>
+    <span>{{ track.soldOut }}</span>
+    <span>₱ {{ track.totalIncome }}</span>
+</div>
+
+<div class="graph-card">
+    <div class="graph-card-body">
+        <div class="percent">
+            <span>100%</span>
+            <span>90%</span>
+            <span>80%</span>
+            <span>70%</span>
+            <span>60%</span>
+            <span>50%</span>
+            <span>40%</span>
+            <span>30%</span>
+            <span>20%</span>
+            <span>10%</span>
+            <span>0%</span>
+        </div>
+        <div class="bar">
+            <div class="col">
+                @for (track of tracks; track $index) {
+                    <span class="endpoint" [ngStyle]="{height: track.height}" [ngClass]="'color-'+$index.toString()"></span>
+                }
+            </div>
+            <div class="col">
+                @for (track of tracks; track $index) {
+                    <span class="endpoint" [ngStyle]="{height: track.height}" [ngClass]="'color-'+$index.toString()"></span>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="date">
+        <span></span>
+        <span>Jan</span>
+        <span>Feb</span>                       
+        <span>Mar</span>                       
+        <span>Apr</span>                       
+        <span>Mar</span>                       
+        <span>Jun</span>                       
+        <span>Jul</span>                       
+        <span>Aug</span>                       
+        <span>Sep</span>                       
+        <span>Oct</span>                       
+        <span>Nov</span>                       
+        <span>Dec</span>                   
+    </div>
+</div>

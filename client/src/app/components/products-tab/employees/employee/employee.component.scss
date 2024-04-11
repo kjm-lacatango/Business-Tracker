@@ -1,0 +1,48 @@
+.employee {
+    @apply tw-h-full;
+
+    .header {
+        @apply tw-grid tw-items-center tw-mt-2;
+        grid-template-columns: repeat(3, 1fr);
+
+        .back {
+            @apply tw-flex tw-justify-start;
+        }
+
+        .title {
+            @apply tw-text-3xl tw-font-semibold tw-text-center tw-text-nowrap;
+        }
+
+        .btn {
+            @apply tw-flex tw-justify-end;
+        }
+    }
+
+    .profile-pic {
+        @apply tw-mt-8 tw-flex tw-justify-center;
+
+        .employee-profile {
+            @apply tw-w-36 tw-h-36 tw-rounded-full tw-border-2;
+            border-color: rgb(6, 165, 6);
+        }
+    }
+
+    .full-name {
+        @apply tw-grid tw-gap-4 tw-mt-6;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .mid {
+        @apply tw-grid tw-gap-4 tw-mt-6;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .bot {
+        @apply tw-grid tw-items-center tw-gap-4 tw-mt-6;
+        grid-template-columns: repeat(2, 1fr);
+
+        .icon {
+            @apply tw-absolute tw-bottom-1 tw-left-2 tw-text-gray-700;
+        }
+    }
+}

@@ -45,7 +45,7 @@
                                 fill="green"
                                 />
                             </svg> 
-                            {{ activity.firstName }} {{ activity.lastName }}
+                            {{ activity.firstName }} {{ getMiddleInitial(activity.middleName) }} {{ activity.lastName }}
                         </span>
                         <span>{{ activity.product }}</span>
                         <span>{{ activity.date | date: "MMM dd, yyyy" }}</span>

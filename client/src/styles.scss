@@ -13,18 +13,36 @@ body {
 
 .btn-primary {
     padding: .5rem 1rem;
-    @apply tw-bg-white tw-font-semibold tw-text-green-500 tw-rounded-xl tw-border-2 tw-border-green-500;
+    border-color: rgb(6, 165, 6);
+    color: rgb(6, 165, 6);
+    @apply tw-bg-white tw-font-semibold tw-rounded-xl tw-border-2;
 
     &:hover {
-        @apply tw-bg-green-500 tw-border-2 tw-text-white;
+        background: rgb(6, 165, 6);
+        @apply tw-border-2 tw-text-white;
     }
 
     &-solid {
         padding: .5rem 1rem;
-        @apply tw-bg-green-500 tw-font-semibold tw-text-white tw-rounded-xl tw-border-2 tw-border-green-500;
+        background: rgb(6, 165, 6);
+        border-color: rgb(6, 165, 6);
+        @apply tw-font-semibold tw-text-white tw-rounded-xl tw-border-2;
 
         &:hover {
-            @apply tw-bg-white tw-border-2 tw-text-green-500;
+            color: rgb(6, 165, 6);
+            @apply tw-bg-white tw-border-2;
+        }
+
+        &:disabled {
+            border-color: lightgreen;
+            background: lightgreen;
+            @apply tw-cursor-not-allowed;
+            
+            &:hover {
+                border-color: lightgreen;
+                background: lightgreen;
+                @apply tw-text-white;
+            }
         }
     }
 }
@@ -44,21 +62,10 @@ body {
         &:hover {
             @apply tw-bg-white tw-border-2 tw-text-red-500;
         }
-    }
-}
-
-.disabled {
-    @apply hover:tw-text-white hover:tw-bg-green-300 tw-border-green-300 tw-bg-green-300 tw-cursor-not-allowed;
-}
-
-.input {
-    @apply tw-border tw-rounded-md;
-    outline: none;
-    width: 100%;
-    padding: .2rem .5rem;
-
-    &:hover, &:focus {
-        @apply tw-shadow-green-500 tw-shadow-sm;
+        
+        &:disabled {
+            @apply hover:tw-text-white hover:tw-bg-red-300 tw-border-red-300 tw-bg-red-300 tw-cursor-not-allowed;
+        }
     }
 }
 

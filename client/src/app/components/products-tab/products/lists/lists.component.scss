@@ -1,0 +1,26 @@
+.table-list {
+    grid-template-columns: 2rem auto;
+    margin-bottom: .6rem;
+    align-items: center;
+    height: 3rem;
+    @apply tw-grid tw-border tw-text-nowrap tw-rounded-md tw-cursor-pointer tw-text-center tw-shadow-md tw-shadow-gray-300 tw-px-2;
+
+    .no-checkbox {
+        @apply tw-text-center tw-grid;
+        grid-template-columns: repeat(5, 1fr) 16rem;
+        align-items: center;
+        
+        &:hover {
+            @apply tw-text-gray-400;
+        }
+
+        .note {
+            @apply tw-text-wrap;
+            font-size: .95rem;
+        }
+    }
+
+    .check {
+        width: .85rem;
+    }
+}

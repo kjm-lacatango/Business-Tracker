@@ -1,0 +1,81 @@
+.header-table-track {
+    @apply tw-grid tw-items-center tw-text-center tw-font-semibold tw-text-nowrap tw-mb-2;
+    grid-template-columns: 6rem repeat(3, 1fr);
+}
+
+.table-list-track {
+    @apply tw-grid tw-items-center tw-text-center;
+    grid-template-columns: 6rem repeat(3, 1fr);
+    margin-bottom: .2rem;
+
+    .boxColor {
+        @apply tw-w-4 tw-h-4 tw-rounded-md;
+        margin: 0 auto 0;
+    }
+}
+
+.graph-card {
+    @apply tw-mt-8;
+    
+
+    &-body {
+        @apply tw-flex;
+
+        .bar {
+            @apply tw-grid tw-w-full tw-border-l-2 tw-border-b-2 tw-items-end;
+            background: linear-gradient(to top right, rgb(235, 235, 235), white);
+            grid-template-columns: repeat(12, 1fr);
+
+            .col {
+                @apply tw-flex tw-items-end tw-justify-around tw-px-2;
+                width: 100%;
+                height: 95%;
+                
+                .endpoint {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    .percent {
+        @apply tw-grid tw-text-sm tw-gap-2 tw-p-2;
+        grid-template-rows: repeat(11, 1fr);
+    }
+
+    .date {
+        @apply tw-grid tw-text-center tw-py-2 tw-gap-2;
+        grid-template-columns: 3.5rem repeat(12, 1fr);
+    }
+}
+
+.color-0 {
+    @apply tw-bg-blue-600;
+}
+.color-1 {
+    @apply tw-bg-amber-400;
+}
+.color-2 {
+    @apply tw-bg-emerald-400;
+}
+.color-3 {
+    @apply tw-bg-fuchsia-600;
+}
+.color-4 {
+    @apply tw-bg-lime-800;
+}
+.color-5 {
+    @apply tw-bg-orange-700;
+}
+.color-6 {
+    @apply tw-bg-rose-400;
+}
+.color-7 {
+   @apply tw-bg-teal-700;
+}
+.color-8 {
+    @apply tw-bg-sky-950;
+}
+.color-9 {
+    @apply tw-bg-yellow-900;
+}

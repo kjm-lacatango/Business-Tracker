@@ -6,7 +6,7 @@
     }
 
     .header {
-        @apply tw-grid tw-mb-4 tw-mt-2;
+        @apply tw-grid tw-mb-4 tw-mt-2 tw-h-12;
         grid-template-columns: repeat(3, 1fr);
         align-items: center;
 
@@ -17,6 +17,10 @@
                 @apply tw-border tw-rounded-md tw-pr-2 tw-cursor-pointer tw-w-full;
                 outline: none;
                 padding: .2rem .5rem .2rem .2rem;
+            }
+
+            input {
+                @apply tw-w-full;
             }
         }
 
@@ -29,17 +33,12 @@
         }
 
         &-table {
-            @apply tw-grid tw-mt-4 tw-px-2;
+            @apply tw-grid tw-mt-4 tw-px-2 tw-text-nowrap;
             grid-template-columns: 2rem repeat(5, 1fr) 16rem;
 
             span {
                 @apply tw-text-center tw-font-semibold;
             }
-        }
-
-        &-table-track {
-            @apply tw-grid tw-items-center tw-text-center tw-font-semibold tw-mt-4 tw-text-nowrap;
-            grid-template-columns: repeat(4, 1fr);
         }
     }
 
@@ -51,40 +50,14 @@
             @apply tw-bg-gray-200 tw-text-gray-500 tw-font-semibold tw-px-6 tw-py-2 tw-rounded-t-lg;
 
             &:not(.active):hover {
-                @apply tw-bg-green-300;
+               background: rgb(109, 207, 109);
+               color: white;
             }
 
             &.active {
-                @apply tw-bg-green-500 tw-text-white;
+                @apply tw-text-white;
+                background: rgb(6, 165, 6);
             }
-        }
-    }
-
-    .table-list {
-        grid-template-columns: 2rem auto;
-        margin-bottom: .6rem;
-        align-items: center;
-        height: 3rem;
-        @apply tw-grid tw-border tw-text-nowrap tw-rounded-md tw-cursor-pointer tw-text-center tw-shadow-md tw-shadow-gray-300 tw-px-2;
-
-        .no-checkbox {
-            @apply tw-text-center tw-grid;
-            grid-template-columns: repeat(5, 1fr) 16rem;
-            align-items: center;
-            
-            &:hover {
-                @apply tw-text-gray-400;
-            }
-
-            .note {
-                @apply tw-text-wrap;
-                font-size: .95rem;
-            }
-        }
-
-        &-track {
-            @apply tw-grid tw-items-center tw-text-center;
-            grid-template-columns: repeat(4, 1fr);
         }
     }
 

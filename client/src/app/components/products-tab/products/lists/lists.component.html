@@ -1,0 +1,11 @@
+<div class="table-list">
+    <input class="check" type="checkbox" [checked]="product.isChecked" (change)="onChange(product.id)" />
+    <div class="no-checkbox" (click)="edit(product.id)">
+        <span>{{ product.type }}</span>
+        <span>{{ product.price ? "₱ " + product.price : "None" }}</span>
+        <span>{{ product.date | date: "MMM dd, YYYY" }}</span>
+        <span>{{ product.soldOut }}</span>
+        <span>₱ {{ product.sales }}</span>
+        <span class="note">{{ product.notes ? product.notes : "None" }}</span>
+    </div>
+</div>

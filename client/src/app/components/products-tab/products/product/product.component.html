@@ -1,0 +1,54 @@
+<div class="product">
+    <card>
+        <card-header px="2rem" pt="1rem">
+            <div class="header">
+                <div class="back">
+                    <icon (click)="back()" type="arrow" color="rgb(6, 165, 6)" hoverColor="rgb(6, 135, 6)" />
+                </div>
+                <span class="title">{{productId ? 'Edit' : 'Add' }} Product</span>
+                <div class="btn">
+                    <button class="btn-primary-solid" [disabled]="form.invalid || isEditOrAddProduct" (click)="onSave()">
+                        {{productId ? 'Save' : 'Add' }}
+                    </button>
+                </div>
+            </div>
+        </card-header>
+        <card-body px="2rem" height="100%">
+            <div class="productName">
+                @if (isEditOrAddProduct) {
+                    <input-field type="text" label="Name of Product" [control]="newProduct" [validations]="validations['newProduct']" />
+                } @else {
+                    <input-field type="select" label="Name of Product"
+                        [options]="products"
+                        [control]="product"
+                        [validations]="validations['product']"
+                        (onSelect)="onSelect($event)"
+                    />
+                }
+                <div class="btn">
+                    @if (isEditOrAddProduct) {
+                        <button class="btn-primary-solid" (click)="saveProduct()" [disabled]="newProduct.invalid">Save</button>
+                        <button class="btn-secondary-solid" (click)="cancelProduct()">Cancel</button> 
+                    } @else {
+                        <button class="btn-primary-solid" [disabled]="product.invalid" (click)="editProduct()" *ngIf="productId">
+                            Edit Product
+                        </button>
+                        <icon type="delete" width="28" height="28" color="rgb(204, 143, 143)" hoverColor="red" (click)="onDelete()" *ngIf="!productId && product.valid" />
+                        <button class="btn-primary-solid" (click)="this.isEditOrAddProduct = true" *ngIf="!productId">
+                            Add New
+                        </button>
+                    }
+                </div>
+            </div>
+            <div class="mid">
+                <input-field type="text" label="Type" [control]="type" [validations]="validations['type']" />
+                <input-field type="date" label="Date" [control]="date" [validations]="validations['date']" />
+                <input-field type="text" label="Sold Out" [control]="soldOut" [validations]="validations['soldOut']" />
+                <input-field type="text" label="Price" [control]="price" [validations]="validations['price']" pl="1.5rem">
+                    <span class="icon">₱</span>
+                </input-field>
+            </div>
+            <input-field type="textarea" label="(optional) Note" [control]="note" mt="2.5rem" />
+        </card-body>
+    </card>
+</div>

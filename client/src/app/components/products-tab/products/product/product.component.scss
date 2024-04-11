@@ -2,7 +2,7 @@
     @apply tw-h-full;
 
     .header {
-        @apply tw-grid tw-items-center;
+        @apply tw-grid tw-items-center tw-mt-2;
         grid-template-columns: repeat(3, 1fr);
 
         .back {
@@ -10,7 +10,7 @@
         }
 
         .title {
-            @apply tw-text-2xl tw-font-semibold tw-text-nowrap tw-text-center;
+            @apply tw-text-3xl tw-font-semibold tw-text-nowrap tw-text-center;
         }
 
         .btn {
@@ -18,12 +18,24 @@
         }
     }
 
+    .profile-pic {
+        @apply tw-mt-12;
+    }
+
     .productName {
-        @apply tw-grid tw-items-end tw-gap-4 tw-mt-12;
+        @apply tw-grid tw-items-end tw-gap-4 tw-mt-6 tw-relative;
         grid-template-columns: 40rem auto;
 
         .btn-primary-solid {
             @apply tw-text-nowrap tw-py-1;
+        }
+
+        .btn-secondary-solid {
+            @apply tw-py-1;
+        }
+
+        .btn {
+            @apply tw-flex tw-items-center tw-gap-3;
         }
     }
 
@@ -31,20 +43,8 @@
         @apply tw-grid tw-gap-6 tw-mt-6;
         grid-template-columns: 1fr 1fr;
 
-        .field {
-            @apply tw-relative;
-
-            .peso {
-                @apply tw-pl-6;
-            }
-
-            .icon {
-                @apply tw-absolute tw-bottom-1 tw-left-2 tw-text-gray-700;
-            }
+        .icon {
+            @apply tw-absolute tw-bottom-1 tw-left-2 tw-text-gray-700;
         }
-    }
-
-    .note {
-        @apply tw-mt-7;
     }
 }
