@@ -11,6 +11,9 @@ import { TrackComponent } from '../../../products-tab/track/track.component';
 import { EmployeeComponent } from '../../../products-tab/employees/employee/employee.component';
 import { EmployeeListsComponent } from '../../../products-tab/employees/lists/lists.component';
 import { Subscription } from 'rxjs';
+import { InputFieldComponent } from '../../../../shared/input-field/input-field.component';
+import { IconsComponent } from '../../../../shared/icons/icons.component';
+import { FormControl } from '@angular/forms';
 
 interface Product {
   id: string;
@@ -50,7 +53,9 @@ interface Employee {
     ProductComponent,
     TrackComponent,
     EmployeeComponent,
-    EmployeeListsComponent
+    EmployeeListsComponent,
+    InputFieldComponent,
+    IconsComponent
   ],
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss'
@@ -65,6 +70,9 @@ export class ProductsComponent {
     {text: "Track", active: false},
     {text: "Others", active: false},
   ];
+
+  productsDateOptions: string[] = ["All", "Week", "Month", "Year"];
+  productsOptions: string[] = ["All", "Coffee", "Milk Tea", "Fruit Tea"];
 
   products: Product[] = [
     {id: '1', isChecked: false, product: 'Ice Tea', type: 'Caramel', price: 30, date: new Date('02/15/2024'), soldOut: 569, sales: 15000},
@@ -94,7 +102,18 @@ export class ProductsComponent {
     {id: "9", isChecked: false, business: "R & L Cafe", firstName: "Steve", lastName: "Doe", age: 28, sex: "Male", startedAt: new Date("04/01/2022"), position: "Crew", salary: 18000},
   ];
 
-  constructor(private router: Router, private route: ActivatedRoute) {}
+  search: FormControl;
+  productDateOption: FormControl;
+  productOption: FormControl;
+
+  constructor(private router: Router, private route: ActivatedRoute) {
+    this.search = new FormControl("", []);
+    this.productDateOption = new FormControl("", []);
+    this.productOption = new FormControl("", []);
+
+    this.productDateOption.setValue(this.productsDateOptions[0]);
+    this.productOption.setValue(this.productsOptions[0]);
+  }
 
   ngOnInit() {
     this.navigationFrom = this.route.queryParams.subscribe(data => {
@@ -143,6 +162,16 @@ export class ProductsComponent {
     }
     
     this.navigateTo("../add/employee");
+  }
+
+  onEnterSearch() {
+    if (this.tabs[2].active) {
+      this.employees = this.employees.filter(employee => 
+        employee.firstName.toLowerCase().includes(this.search.value.toLowerCase()) 
+        || employee.lastName.toLowerCase().includes(this.search.value.toLowerCase())
+      );
+      console.log(this.employees)
+    }
   }
 
   onDelete() {

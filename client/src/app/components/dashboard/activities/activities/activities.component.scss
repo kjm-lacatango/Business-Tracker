@@ -8,12 +8,13 @@
         align-items: center;
 
         &-right {
-            @apply tw-flex tw-gap-2;
+            @apply tw-grid tw-gap-2;
+            grid-template-columns: auto 1fr;
 
-            select {
-                @apply tw-border tw-rounded-md tw-pr-2 tw-cursor-pointer;
-                outline: none;
-                padding: .2rem .5rem .2rem .2rem;
+            .icon {
+                @apply tw-absolute;
+                bottom: .4rem;
+                right: .4rem;
             }
         }
 

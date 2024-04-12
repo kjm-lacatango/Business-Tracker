@@ -17,6 +17,7 @@ export class InputFieldComponent {
   @Input({ required: true }) control!: FormControl;
   @Input() type: string = "text";
   @Input() label!: string;
+  @Input() placeholder: string = "";
   @Input() validations: InputValidations[] = [];
   @Input() autoComplete: string = "off";
   @Input() options!: string[];
@@ -27,8 +28,18 @@ export class InputFieldComponent {
   @Input() width!: string;
   @Input() mt!: string;
   @Output() onSelect = new EventEmitter();
+  @Output() onEnterSearch = new EventEmitter();
+  @Output() onInputSearch = new EventEmitter();
 
   onChange(event: any) {
     this.onSelect.emit(event.target.value);
+  }
+
+  onEnter() {
+    this.onEnterSearch.emit();
+  }
+
+  onInput() {
+    this.onInputSearch.emit();
   }
 }

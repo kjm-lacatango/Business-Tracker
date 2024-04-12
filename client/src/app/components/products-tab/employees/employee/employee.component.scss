@@ -19,11 +19,33 @@
     }
 
     .profile-pic {
-        @apply tw-mt-8 tw-flex tw-justify-center;
+        @apply tw-mt-8 tw-flex tw-justify-center tw-relative;
 
         .employee-profile {
             @apply tw-w-36 tw-h-36 tw-rounded-full tw-border-2;
             border-color: rgb(6, 165, 6);
+        }
+
+        .upload-profile {
+            @apply tw-absolute tw-h-36 tw-w-36 tw-rounded-full tw-cursor-pointer;
+            background: linear-gradient(to top, rgb(65, 65, 65), transparent);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: .3s ease-out;
+            margin-top: 2px;
+
+            span {
+                @apply tw-font-semibold tw-text-white;
+                margin-top: 1rem;
+                font-size: 1rem;
+            }
+
+            &:hover {
+                opacity: 1;
+            }
         }
     }
 

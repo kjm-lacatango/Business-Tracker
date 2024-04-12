@@ -2,28 +2,25 @@
     <card>
         <card-header px="2rem" pt="1rem" pb=".5rem" [sticky]="true">
             <div class="header">
-                <div class="header-right">
+                <div class="header-right" [ngClass]="{products: tabs[0].active}">
                     @if (tabs[0].active) {
-                        <select>
-                            <option>All</option>
-                            <option>Ice Tea</option>
-                            <option>Waffle</option>
-                            <option>Pizza</option>
-                        </select>
-                        <select>
-                            <option>All</option>
-                            <option>Day</option>
-                            <option>Week</option>
-                            <option>Month</option>
-                            <option>Year</option>
-                        </select>
+                        <input-field type="select"
+                            [options]="productsDateOptions" 
+                            [control]="productDateOption" 
+                        />
+                        <input-field type="select"
+                            [options]="productsOptions" 
+                            [control]="productDateOption" 
+                        />
                     }
-                    <input class="input" placeholder="Search..." *ngIf="!tabs[0].active" />
+                    <input-field type="text" placeholder="Search Name..." (onEnterSearch)="onEnterSearch()"
+                        [control]="search" *ngIf="!tabs[0].active"
+                    >
+                        <icon class="icon" type="search" width="20" height="20" color="darkgray" hoverColor="gray" (click)="onEnterSearch()" />
+                    </input-field>
                 </div>
                 
-                <span *ngIf="tabs[0].active">Products</span>
-                <span *ngIf="tabs[1].active">Track</span>
-                <span *ngIf="tabs[2].active">Others</span>
+                <span>{{ tabs[0].active ? 'Products' : tabs[1].active ? 'Track' : 'Others' }}</span>
                 
                 <div class="btn" *ngIf="!tabs[1].active">
                     @if (isDelete) {

@@ -7,7 +7,7 @@ import { Employee } from '../../../../utils/interfaces';
   selector: 'employee-lists',
   standalone: true,
   imports: [
-    CommonModule
+    CommonModule,
   ],
   templateUrl: './lists.component.html',
   styleUrl: './lists.component.scss'
@@ -46,7 +46,7 @@ export class EmployeeListsComponent {
   getMiddleInitial(middleName?: string) {
     if (!middleName) return;
 
-    const initials = middleName?.split(' ').map(part => part.charAt(0).toUpperCase()).join('');
+    const initials = middleName?.split(' ').map(val => val.charAt(0).toUpperCase()).join('');
     return initials + '.';
   }
 }

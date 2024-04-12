@@ -14,17 +14,75 @@
         }
     }
 
-    .user-icon {
-        margin: 0 auto 0;
+    .user-card {
+        @apply tw-grid tw-my-8 tw-items-center tw-px-4 tw-pb-8 ;
+        grid-template-columns: auto 1fr;
+        gap: 3rem;
+
+        .profile-pic {
+            @apply tw-flex tw-justify-center tw-relative tw-flex-col tw-items-center;
+
+            .user-profile {
+                @apply tw-w-36 tw-h-36 tw-rounded-full tw-border-2;
+                border-color: rgb(6, 165, 6);
+            }
+
+            .upload-profile {
+                @apply tw-absolute tw-h-36 tw-w-36 tw-rounded-full tw-cursor-pointer tw-top-0;
+                background: linear-gradient(to top, rgb(65, 65, 65), transparent);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                opacity: 0;
+                transition: .3s ease-out;
+                margin-top: 2px;
+
+                span {
+                    @apply tw-font-semibold tw-text-white;
+                    margin-top: 1rem;
+                    font-size: 1rem;
+                }
+
+                &:hover {
+                    opacity: 1;
+                }
+            }
+        }
+
+        .complete-name {
+            @apply tw-grid tw-gap-4;
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .mid {
+            @apply tw-grid tw-gap-4 tw-mt-6;
+            grid-template-columns: 1fr 1fr;
+        }
     }
 
-    .complete-name {
-        @apply tw-grid tw-gap-4;
-        grid-template-columns: repeat(3, 1fr);
-    }
+    .email-input {
+        @apply tw-relative tw-mt-6;
 
-    .auth {
-        @apply tw-grid tw-gap-4;
-        grid-template-columns: 1fr 1fr;
+        // input {
+        //     @apply tw-border tw-rounded-lg tw-outline-none tw-text-center;
+        //     padding: .2rem .5rem;
+
+        //     &:hover, &:focus {
+        //         @apply tw-shadow-green-500 tw-shadow-sm;
+        //     }
+    
+        //     &.error {
+        //         @apply tw-border-red-500;
+    
+        //         &:hover, &:focus {
+        //             @apply tw-border-red-500 tw-shadow-red-500 tw-shadow-sm;
+        //         }
+        //     }
+        // }
+
+        span {
+            @apply tw-absolute tw-right-0 tw-bottom-0;
+        }
     }
 }

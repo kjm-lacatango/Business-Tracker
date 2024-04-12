@@ -1,5 +1,5 @@
 <div class="field" [ngStyle]="{width: width, 'margin-top': mt}">
-    <label [for]="label">{{ label }}:</label>
+    <label [for]="label" *ngIf="label">{{ label + ":" }}</label>
     @if (type === "text" || type === "date") {
         <input class="input" 
             [ngClass]="{error: (control.dirty || control.touched) && control.errors}" 
@@ -7,7 +7,10 @@
             [type]="type"
             [formControl]="control"
             [autocomplete]="autoComplete"
+            [placeholder]="placeholder"
             [ngStyle]="{'padding-left': pl}"
+            (keydown.enter)="onEnter()"
+            (input)="onInput()"
         />
         <ng-content selector=".icon"></ng-content>
     } @else if (type === "select") {

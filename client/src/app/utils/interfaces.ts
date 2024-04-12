@@ -41,3 +41,12 @@ export interface Activity {
     product: string;
     note?: string;
 }
+
+export interface User {
+    id: string;
+    firstName: string;
+    middleName?: string;
+    lastName: string;
+    email: string;
+    designation: string;
+}

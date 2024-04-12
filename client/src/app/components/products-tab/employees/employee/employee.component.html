@@ -16,11 +16,15 @@
         <card-body px="2rem" height="100%">
             <div class="profile-pic">
                 <!-- <img class="employee-profile" src="#" alt="employee-profile" /> -->
-                <icon type="user-icon" width="150" height="150" hoverColor="rgb(6, 135, 6)" />
+                <icon type="user-icon" width="150" height="150" cursor="default" />
+                <div class="upload-profile">
+                    <icon type="picture" color="white" width="50" height="50" />
+                    <span>Upload Profile</span> 
+                </div>
             </div>
             <div class="full-name">
                 <input-field type="text" label="First Name" [control]="firstName" [validations]="validations['firstName']" />
-                <input-field type="text" label="Middle Name" [control]="middleName" />
+                <input-field type="text" label="(optional) Middle Name" [control]="middleName" />
                 <input-field type="text" label="Last Name" [control]="lastName" [validations]="validations['lastName']" />
             </div>
             <div class="mid">

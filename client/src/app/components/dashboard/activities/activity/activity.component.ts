@@ -86,6 +86,7 @@ export class ActivityComponent {
   onSave() {
     if (this.activityId) {
       console.log("--from save--");
+      console.log(this.form.value);
       return;
     }
 

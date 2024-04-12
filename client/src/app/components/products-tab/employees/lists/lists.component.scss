@@ -9,7 +9,7 @@
     grid-template-columns: repeat(3, 1fr);
 
     .card {
-        @apply tw-border-2 tw-border-green-600 tw-rounded-xl tw-flex tw-flex-col tw-items-center tw-justify-around tw-px-8 tw-py-2;
+        @apply tw-border-2 tw-border-green-600 tw-rounded-xl tw-flex tw-flex-col tw-items-center tw-justify-around tw-px-4 tw-py-2;
         min-height: 7rem;
         height: 100%;
 
