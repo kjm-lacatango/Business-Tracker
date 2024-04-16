@@ -1,0 +1,309 @@
+.home {
+    @apply tw-h-full;
+
+    .header {
+        @apply tw-grid tw-items-center;
+        grid-template-columns: repeat(3, 1fr);
+
+       .title {
+            @apply tw-flex tw-justify-center tw-text-3xl tw-font-semibold;
+        } 
+    }
+
+    .headers {
+        @apply tw-grid tw-gap-4 tw-items-center tw-mt-6;
+        grid-template-columns: 1fr auto auto;
+
+        .card {
+            @apply tw-border-2 tw-rounded-xl tw-px-8 tw-py-2 tw-h-24;
+            border-color: rgb(6, 165, 6);
+
+            &.businessAndMember {
+                @apply tw-flex tw-justify-between tw-gap-4;
+
+                .business {
+                    @apply tw-flex tw-flex-col tw-justify-around;
+
+                    .data {
+                        @apply tw-pl-8;
+                    }
+                }
+
+                .member {
+                    @apply tw-flex tw-flex-col tw-items-center tw-justify-around;
+                }
+            }
+
+            &.profit, &.capital {
+                @apply tw-flex tw-flex-col tw-items-center tw-justify-around;
+            }
+
+            .title {
+                @apply tw-text-xl tw-font-semibold tw-text-nowrap;
+            }
+
+            .data {
+                @apply tw-text-3xl tw-font-bold tw-text-nowrap;
+            }
+        }
+    }
+
+    .mid-card {
+        @apply tw-grid tw-items-end tw-gap-10;
+        grid-template-columns: 1fr 1fr;
+
+        &.header {
+            @apply tw-mt-4;
+
+           .left {
+                @apply tw-w-2/3;
+            }
+
+            .tabs {
+                @apply tw-flex tw-gap-1;
+
+                span {
+                    @apply tw-cursor-pointer tw-px-6 tw-font-semibold tw-py-2 tw-rounded-t-lg tw-bg-gray-200 tw-text-gray-500;
+
+                    &:not(.active):hover {
+                        background: rgb(109, 207, 109);
+                        color: white;
+                    }
+
+                    &.active {
+                        @apply tw-text-white;
+                        background: rgb(6, 165, 6);
+                    }
+                }
+            } 
+        }
+        
+        .product {
+            @apply tw-border tw-rounded-lg tw-relative tw-mt-6;
+            height: 16.5rem;
+
+            .headers-table, .product-card {
+                @apply tw-grid tw-text-center;
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .item-list {
+                @apply tw-overflow-auto;
+                height: 11.7rem;
+
+                .span {
+                    @apply tw-h-8 tw-flex tw-items-center tw-justify-center;
+                    background: rgb(253, 253, 253);
+
+                    &.even {
+                        @apply tw-h-8;
+                        background: rgb(245, 245, 245);
+                    }
+                }
+            }
+
+            .headers-table {
+                @apply tw-sticky tw-w-full tw-py-1 tw-font-semibold;
+            }
+
+            .footer {
+                @apply tw-absolute tw-w-full tw-text-end tw-font-semibold tw-py-2 tw-pr-6 tw-text-lg tw-rounded-b-lg;
+                bottom: 0;
+                right: 0;
+                background: white;
+            }
+        }
+
+        .messages-card, .members-card, .notifications-card {
+            @apply tw-border tw-relative tw-pt-2 tw-rounded-b-lg tw-rounded-tr-lg;
+            height: 18rem;
+
+            .message-cards, .notification-cards {
+                @apply tw-overflow-auto tw-px-4;
+                height: 14rem;
+
+                .user-cont {
+                    @apply tw-w-full tw-flex tw-justify-end tw-items-end tw-gap-2 tw-mb-2;
+
+                    .user-card {
+                        @apply tw-relative tw-px-4 tw-pt-2 tw-pb-6 tw-w-2/3 tw-min-h-12 tw-rounded-t-xl tw-rounded-l-xl;
+                        background: rgb(0, 126, 230);
+                        color: white;
+                        cursor: default;
+
+                        .info {
+                            @apply tw-absolute tw-flex tw-justify-between tw-text-sm tw-w-full tw-px-4;
+                            bottom: 0;
+                            left: 0;
+                            color: rgb(212, 212, 212);
+                        }
+                    }
+                }
+
+                .other-cont {
+                    @apply tw-w-full tw-flex tw-items-end tw-gap-2 tw-mb-2;
+
+                   .other-card {
+                        @apply tw-relative tw-px-4 tw-pt-2 tw-pb-6 tw-w-2/3 tw-rounded-t-xl tw-rounded-r-xl;
+                        background: rgb(214, 236, 255);
+
+                        .info {
+                            @apply tw-absolute tw-flex tw-justify-between tw-text-sm tw-w-full tw-px-4;
+                            bottom: 0;
+                            left: 0;
+                            color: rgb(156, 156, 156);
+                        }
+                    } 
+                }
+                
+                .time {
+                    @apply tw-text-gray-500 tw-w-full tw-flex tw-justify-center tw-mb-2;
+                }
+
+                img {
+                    @apply tw-border tw-border-green-500 tw-h-6 tw-w-6 tw-rounded-full;
+                }
+            }
+            
+            .footer {
+                @apply tw-absolute tw-items-center tw-gap-4 tw-px-4 tw-py-1 tw-w-full tw-bg-white tw-rounded-b-lg;
+                bottom: 0;
+                display: grid;
+                grid-template-columns: 1fr auto;
+            }
+        }
+
+        .messages-card {
+            background: linear-gradient(to bottom, white, rgb(247, 247, 247));
+        }
+
+        .members-card {
+            @apply tw-text-center tw-bg-white;
+
+            .table-header {
+                @apply tw-grid tw-gap-2 tw-pb-1 tw-font-semibold;
+                grid-template-columns: 1fr 7rem 8rem;
+            
+                .name {
+                    @apply tw-text-start tw-pl-8;
+                }
+            }
+
+            .list {
+                @apply tw-overflow-auto;
+                height: 15rem;
+
+                .member-card {
+                    @apply tw-grid tw-items-center tw-cursor-pointer;
+                    grid-template-columns: 1fr 7rem 8rem;
+
+                    &:hover {
+                        @apply tw-text-gray-400;
+                    }
+
+                    span {
+                        padding: .5rem 1rem .5rem 0;
+                        background: rgb(253, 253, 253);
+
+                        &.even {
+                            background: rgb(245, 245, 245);
+                        }
+                    }
+
+                    .name {
+                        @apply tw-text-start tw-flex tw-gap-2 tw-items-center;
+                        padding: .4rem 0 .4rem 1rem;
+                
+                        img {
+                            @apply tw-border tw-border-green-500 tw-h-6 tw-w-6 tw-rounded-full;
+                        }
+                    }
+                }
+            }
+        }
+
+        .notifications-card {
+
+            .list {
+                @apply tw-overflow-auto tw-px-4 tw-pb-2;
+                height: 17rem;
+
+                .card {
+                    @apply tw-border tw-rounded-lg tw-mt-2;
+
+                    &.request {
+                        @apply tw-grid tw-gap-4;
+                        grid-template-columns: 1fr auto;
+
+                        .data {
+                            @apply tw-relative tw-pt-2 tw-pl-4;
+                            background: linear-gradient(to left, white, rgb(248, 248, 248));
+
+                            .name {
+                                @apply tw-text-2xl tw-font-semibold tw-text-center;
+                            }
+
+                            .time {
+                                @apply tw-text-sm tw-absolute;
+                                bottom: 0;
+                                left: .3rem;
+
+                                strong {
+                                    @apply tw-text-gray-500;
+                                }
+                            }
+                        }
+
+                        .btn {
+                            @apply tw-flex tw-flex-col tw-gap-1 tw-py-1 tw-pr-1;
+
+                            button {
+                                @apply tw-py-0 tw-rounded-md;
+
+                                &.btn-secondary-solid {
+                                    @apply tw-bg-gray-300 tw-border-gray-300;
+
+                                    &:hover {
+                                        @apply tw-text-white tw-bg-red-500 tw-border-red-500;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    &.notification {
+                        @apply tw-relative tw-px-4 tw-py-2;
+
+                        &.error {
+                            @apply tw-border-l-4 tw-border-l-red-500;
+                            background: linear-gradient(to left, white, rgb(255, 245, 245));
+                        }
+                        &.warning {
+                            @apply tw-border-l-4 tw-border-l-orange-500;
+                            background: linear-gradient(to left, white, rgb(255, 255, 234));
+                        }
+                        &.info {
+                            @apply tw-border-l-4 tw-border-l-cyan-500;
+                            background: linear-gradient(to left, white, rgb(244, 255, 255));
+                        }
+
+                        .remove {
+                            @apply tw-absolute tw-bg-gray-300 tw-font-semibold tw-text-white tw-rounded-full tw-cursor-pointer;
+                            top: -.4rem;
+                            right: -.4rem;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            height: 1.2rem;
+                            width: 1.2rem;
+
+                            &:hover {
+                                @apply tw-bg-red-500;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

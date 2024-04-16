@@ -1,1 +1,147 @@
-<p>home works!</p>
+<div class="home">
+    <card>
+        <card-header px="2rem" pt="1rem">
+            <div class="header">
+                <input-field type="text" placeholder="Search Member..." [control]="search"></input-field>
+                <span class="title">Home</span>
+                <div></div>
+            </div>
+
+            <div class="headers">
+                <div class="card businessAndMember">
+                    <div class="business">
+                        <span class="title">Business Name</span>
+                        <span class="data">Sari Sari Store</span>
+                    </div>
+                    <div class="member">
+                        <span class="title">Members</span>
+                        <span class="data">5</span>
+                    </div>
+                </div>
+                <div class="card capital">
+                    <span class="title">Capital</span>
+                    <span class="data">P 15,000</span>
+                    </div>
+                <div class="card profit">
+                    <span class="title">Profit</span>
+                    <span class="data">P 30,000</span>
+                </div>
+            </div>
+
+            <div class="mid-card header">
+                <div class="left">
+                    <input-field type="select" label="Product" [options]="productOptions"[control]="product" />
+                </div>
+                <div class="right">
+                    <div class="tabs">
+                        @for (tab of tabs; track $index) {
+                            <span [ngClass]="{active: tab.active}" (click)="onSelectTab(tab)">{{ tab.text }}</span>
+                        }
+                    </div>
+                </div>
+            </div>
+        </card-header>
+        <card-body px="2rem" height="100%">
+            <div class="mid-card">
+                <div class="product">
+                    <div class="headers-table">
+                        <span>Item</span>
+                        <span>Capital</span>
+                        <span>Profit</span>
+                    </div>
+                    <div class="item-list scroll">
+                        <div class="product-card" *ngFor="let product of productItems; even as even">
+                            <span class="span" [ngClass]="{even: even}">{{ product.item }}</span>
+                            <span class="span" [ngClass]="{even: even}">{{ product.capital }}</span>
+                            <span class="span" [ngClass]="{even: even}">{{ product.profit }}</span>
+                        </div>
+                    </div>
+                    <div class="footer">
+                        <span>Total Profit:<strong> P 90,000</strong></span>
+                    </div>
+                </div>
+
+                <div class="members-card" *ngIf="tabs[0].active">
+                    <div class="table-header">
+                        <span class="name">Name</span>
+                        <span>Designation</span>
+                        <span class="tw-mr-2">Started On</span>
+                    </div>
+                    <div class="list scroll">
+                        <div class="member-card" *ngFor="let member of members; even as even" (dblclick)="onDoubleClick(member.id, 'member')">
+                            <span class="name" [ngClass]="{even: even}">
+                                <!-- <img src="#" alt="user" /> -->
+                                <icon type="user-icon" />
+                                {{ member.firstName }} {{ member.middleName }} {{ member.lastName }}
+                            </span>
+                            <span [ngClass]="{even: even}">{{ member.designation }}</span>
+                            <span [ngClass]="{even: even}">{{ member.startedOn | date: "MMM dd, yyyy" }}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="messages-card" *ngIf="tabs[1].active">
+                    <div class="message-cards scroll" #test>
+                        @for (user of userMessages; track $index) {
+                            <div class="other-cont" *ngIf="user.designation.toLowerCase() !== 'admin'">
+                                <icon type="user-icon" cursor="default" />
+                                <!-- <img src="#" alt="other-pic" /> -->
+                                <div class="other-card">
+                                    <span class="message">{{ user.message }}</span>
+                                    <div class="info">
+                                        <span>{{ user.firstName }} MI. {{ user.lastName }}</span>
+                                        <span>{{ user.designation }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="user-cont" *ngIf="user.designation.toLowerCase() === 'admin'">
+                                <div class="user-card" (dblclick)="onDoubleClick(user.id)">
+                                    <span class="message">{{ user.message }}</span>
+                                    <div class="info">
+                                        <span>{{ user.firstName }} MI. {{ user.lastName }}</span>
+                                        <span>{{ user.designation }}</span>
+                                    </div>
+                                </div>
+                                <icon type="user-icon" cursor="default" />
+                                <!-- <img src="#" alt="other-pic" /> -->
+                            </div>
+                            <div class="time"><small>{{ formatTimeAgo(user.createdAt) }}</small></div>
+                        }
+                    </div>
+                    <div class="footer">
+                        <input-field type="text" placeholder="Enter Your Message" [control]="message" />
+                        <button class="btn-primary-solid" [disabled]="message.invalid || !message.value.trim()">Send</button>
+                    </div>
+                </div>
+
+                <div class="notifications-card" *ngIf="tabs[2].active">
+                    <div class="list scroll">
+                        <div class="tw-mb-8" *ngIf="requestForAdmin.length">
+                            @for (request of requestForAdmin; track $index) {
+                                <div class="card request">
+                                    <div class="data">
+                                        <span class="name">{{ request.firstName }} {{ request.middleName }} {{ request.lastName }}</span>
+                                        <span class="time">
+                                            <strong>Requested </strong>
+                                            {{ formatTimeAgo(request.date) === null ? "Just now" : formatTimeAgo(request.date) }}
+                                        </span>
+                                    </div>
+                                    <div class="btn">
+                                        <button class="btn-primary-solid">Accept</button>
+                                        <button class="btn-secondary-solid">Remove</button>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                        @for (notification of notifications; track $index) {
+                            <div class="card notification" [ngClass]="notification.status">
+                                <span>{{ notification.message }}</span>
+                                <small class="remove">X</small>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </card-body>
+    </card>
+</div>

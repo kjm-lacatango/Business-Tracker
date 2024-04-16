@@ -7,7 +7,11 @@
         width: 100%;
         padding: .2rem .5rem;
 
-        &:hover, &:focus {
+        &.select {
+            @apply tw-cursor-pointer;
+        }
+
+        &:not(:disabled):hover, &:focus {
             @apply tw-shadow-green-500 tw-shadow-sm;
         }
 
@@ -17,6 +21,14 @@
             &:hover, &:focus {
                 @apply tw-border-red-500 tw-shadow-red-500 tw-shadow-sm;
             }
+        }
+
+        &.center {
+            @apply tw-text-center;
+        }
+
+        &:disabled {
+            @apply tw-bg-gray-200;
         }
     }
 

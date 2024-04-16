@@ -23,6 +23,7 @@
                         [control]="product"
                         [validations]="validations['product']"
                         (onSelect)="onSelect($event)"
+                        (onDoubleClick)="isDelete = true"
                     />
                 }
                 <div class="btn">
@@ -33,7 +34,7 @@
                         <button class="btn-primary-solid" [disabled]="product.invalid" (click)="editProduct()" *ngIf="productId">
                             Edit Product
                         </button>
-                        <icon type="delete" width="28" height="28" color="rgb(204, 143, 143)" hoverColor="red" (click)="onDelete()" *ngIf="!productId && product.valid" />
+                        <icon type="delete" width="28" height="28" color="rgb(204, 143, 143)" hoverColor="red" (click)="onDelete()" *ngIf="!productId && (product.valid && isDelete)" />
                         <button class="btn-primary-solid" (click)="this.isEditOrAddProduct = true" *ngIf="!productId">
                             Add New
                         </button>
@@ -41,7 +42,7 @@
                 </div>
             </div>
             <div class="mid">
-                <input-field type="text" label="Type" [control]="type" [validations]="validations['type']" />
+                <input-field type="text" label="Item" [control]="item" [validations]="validations['item']" />
                 <input-field type="date" label="Date" [control]="date" [validations]="validations['date']" />
                 <input-field type="text" label="Sold Out" [control]="soldOut" [validations]="validations['soldOut']" />
                 <input-field type="text" label="Price" [control]="price" [validations]="validations['price']" pl="1.5rem">

@@ -27,14 +27,14 @@ import { InputValidations } from '../../../../utils/interfaces';
 export class EmployeeComponent {
   employeeId: string | null = null;
   isEditOrAddEmployee: boolean = false;
-  sexOptions: string[] = ["Male", "Female", "Others"];
+  genderOptions: string[] = ["Male", "Female", "Others"];
 
   form: FormGroup;
   firstName: FormControl;
   middleName: FormControl;
   lastName: FormControl;
   age: FormControl;
-  sex: FormControl;
+  gender: FormControl;
   startedOn: FormControl;
   position: FormControl;
   salary: FormControl;
@@ -52,7 +52,7 @@ export class EmployeeComponent {
       {error: "required", message: "This field is required."},
       {error: "pattern", message: "Invalid input, please try again."},
     ],
-    sex: [
+    gender: [
       {error: "required", message: "This field is required."},
     ],
     startedOn: [
@@ -77,7 +77,7 @@ export class EmployeeComponent {
     this.middleName = new FormControl("", []);
     this.lastName = new FormControl("", [Validators.required, Validators.pattern(/^[A-Za-z][ A-Za-z]*$/)]);
     this.age = new FormControl("", [Validators.required, Validators.pattern(/^\d+$/)]);
-    this.sex = new FormControl("", [Validators.required]);
+    this.gender = new FormControl("", [Validators.required]);
     this.startedOn = new FormControl(new Date().toISOString().substring(0, 10), [Validators.required]);
     this.position = new FormControl("", [Validators.required, Validators.pattern(/^[A-Za-z][ A-Za-z]*$/)]);
     this.salary = new FormControl("", [Validators.required, Validators.pattern(/^(\d{1,3}(,\d{3})*|\d+)$/)]);
@@ -87,7 +87,7 @@ export class EmployeeComponent {
       middleName: this.middleName,
       lastName: this.lastName,
       age: this.age,
-      sex: this.sex,
+      gender: this.gender,
       startedOn: this.startedOn,
       position: this.position,
       salary: this.salary

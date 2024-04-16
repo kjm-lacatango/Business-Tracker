@@ -10,12 +10,16 @@
         }
 
         .btn {
-            @apply tw-flex tw-justify-end
+            @apply tw-flex tw-justify-end;
+
+            .btn-secondary-solid {
+                @apply tw-mr-2;
+            }
         }
     }
 
     .user-card {
-        @apply tw-grid tw-my-8 tw-items-center tw-px-4 tw-pb-8 ;
+        @apply tw-grid tw-mb-10 tw-mt-12 tw-items-center tw-px-4;
         grid-template-columns: auto 1fr;
         gap: 3rem;
 
@@ -35,7 +39,7 @@
                 justify-content: center;
                 align-items: center;
                 opacity: 0;
-                transition: .3s ease-out;
+                transition: .1s ease-in;
                 margin-top: 2px;
 
                 span {
@@ -61,28 +65,7 @@
         }
     }
 
-    .email-input {
-        @apply tw-relative tw-mt-6;
-
-        // input {
-        //     @apply tw-border tw-rounded-lg tw-outline-none tw-text-center;
-        //     padding: .2rem .5rem;
-
-        //     &:hover, &:focus {
-        //         @apply tw-shadow-green-500 tw-shadow-sm;
-        //     }
-    
-        //     &.error {
-        //         @apply tw-border-red-500;
-    
-        //         &:hover, &:focus {
-        //             @apply tw-border-red-500 tw-shadow-red-500 tw-shadow-sm;
-        //         }
-        //     }
-        // }
-
-        span {
-            @apply tw-absolute tw-right-0 tw-bottom-0;
-        }
+    .email {
+        @apply tw-mt-6;
     }
 }

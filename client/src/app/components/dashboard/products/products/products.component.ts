@@ -14,31 +14,7 @@ import { Subscription } from 'rxjs';
 import { InputFieldComponent } from '../../../../shared/input-field/input-field.component';
 import { IconsComponent } from '../../../../shared/icons/icons.component';
 import { FormControl } from '@angular/forms';
-
-interface Product {
-  id: string;
-  isChecked: boolean;
-  product: string;
-  type: string;
-  price?: number;
-  date: Date;
-  soldOut: number;
-  sales: number;
-  notes?: string;
-}
-interface Employee {
-  id: string;
-  isChecked: boolean;
-  business: string;
-  firstName: string;
-  middleInitial?: string;
-  lastName: string;
-  age: number;
-  sex: string;
-  startedAt: Date;
-  position: string;
-  salary: number;
-}
+import { Employee, Product } from '../../../../utils/interfaces';
 
 @Component({
   selector: 'app-products',
@@ -61,9 +37,10 @@ interface Employee {
   styleUrl: './products.component.scss'
 })
 export class ProductsComponent {
-  private navigationFrom = new Subscription();
+  private navigation = new Subscription();
   isCheckedAll: boolean = false;
   isDelete: boolean = false;
+  totalEmployeeSalary: number = 0;
 
   tabs = [
     {text: "Products", active: true},
@@ -71,31 +48,40 @@ export class ProductsComponent {
     {text: "Others", active: false},
   ];
 
-  productsDateOptions: string[] = ["All", "Week", "Month", "Year"];
-  productsOptions: string[] = ["All", "Coffee", "Milk Tea", "Fruit Tea"];
+  productsDateOptions: string[] = ["All", "Day", "Week", "Month", "Year"];
+  productsOptions: string[] = ["All", "Liquor", "Coffee", "Milk Tea", "Fruit Tea"];
+  categoryOptions: any[] = [
+    { text: "Stock", active: true },
+    { text: "Employee", active: false },
+    { text: "Trash", active: false },
+  ];
+  stockOptions: string[] = ["Liquor", "Coffee", "Milk Tea", "Fruit Tea"];
+  deleteFromOptions: string[] = ["All", "Products", "Activities", "Employees", "Stocks", "Track"];
 
+  filterProducts: Product[] = [];
   products: Product[] = [
-    {id: '1', isChecked: false, product: 'Ice Tea', type: 'Caramel', price: 30, date: new Date('02/15/2024'), soldOut: 569, sales: 15000},
-    {id: '2', isChecked: false, product: 'Ice Tea', type: 'Caramel', price: 30, date: new Date('02/15/2024'), soldOut: 569, sales: 15000, notes: "Discounted on christmas and new year or birthday"},
-    {id: '3', isChecked: false, product: 'Ice Tea', type: 'Caramel', price: 30, date: new Date('02/15/2024'), soldOut: 569, sales: 15000},
-    {id: '4', isChecked: false, product: 'Ice Tea', type: 'Caramel', date: new Date('02/15/2024'), soldOut: 569, sales: 15000},
-    {id: '4', isChecked: false, product: 'Ice Tea', type: 'Caramel', date: new Date('02/15/2024'), soldOut: 569, sales: 15000},
-    {id: '4', isChecked: false, product: 'Ice Tea', type: 'Caramel', date: new Date('02/15/2024'), soldOut: 569, sales: 15000},
-    {id: '4', isChecked: false, product: 'Ice Tea', type: 'Caramel', date: new Date('02/15/2024'), soldOut: 569, sales: 15000},
-    {id: '4', isChecked: false, product: 'Ice Tea', type: 'Caramel', date: new Date('02/15/2024'), soldOut: 569, sales: 15000},
-    {id: '4', isChecked: false, product: 'Ice Tea', type: 'Caramel', date: new Date('02/15/2024'), soldOut: 569, sales: 15000},
-    {id: '4', isChecked: false, product: 'Ice Tea', type: 'Caramel', date: new Date('02/15/2024'), soldOut: 569, sales: 15000},
-    {id: '4', isChecked: false, product: 'Ice Tea', type: 'Caramel', date: new Date('02/15/2024'), soldOut: 569, sales: 15000},
-    {id: '4', isChecked: false, product: 'Ice Tea', type: 'Caramel', date: new Date('02/15/2024'), soldOut: 569, sales: 15000},
-    {id: '4', isChecked: false, product: 'Ice Tea', type: 'Caramel', date: new Date('02/15/2024'), soldOut: 569, sales: 15000},
+    {id: '1', isChecked: false, product: 'Liquor', name: "Johnny Doe", item: 'Alfonso', price: 30, date: new Date('02/15/2024'), soldOut: 569, sales: 15000},
+    {id: '2', isChecked: false, product: 'Liquor', name: "John Dale E. Torez", item: 'Alfonso', price: 30, date: new Date('02/15/2024'), soldOut: 569, sales: 15000, notes: "This is from main branch"},
+    {id: '3', isChecked: false, product: 'Coffee', name: "John T. Smith", item: 'Caramel', price: 30, date: new Date('02/15/2024'), soldOut: 569, sales: 15000},
+    {id: '4', isChecked: false, product: 'Fruit Tea', name: "John T. Smith", item: 'Banana', date: new Date('02/15/2024'), soldOut: 569, sales: 15000, notes: "This is from branch 2"},
+    {id: '4', isChecked: false, product: 'Liquor', name: "John T. Smith", item: 'Beer', date: new Date('02/15/2024'), soldOut: 569, sales: 15000, notes: "This is from branch 1"},
+    {id: '4', isChecked: false, product: 'Coffee', name: "John T. Smith", item: 'Caramel', date: new Date('02/15/2024'), soldOut: 569, sales: 15000},
+    {id: '4', isChecked: false, product: 'Milk Tea', name: "John T. Smith", item: 'Caramel', date: new Date('02/15/2024'), soldOut: 569, sales: 15000},
+    {id: '4', isChecked: false, product: 'Fruit Tea', name: "John T. Smith", item: 'Apple', date: new Date('02/15/2024'), soldOut: 569, sales: 15000},
+    {id: '4', isChecked: false, product: 'Fruit Tea', name: "John T. Smith", item: 'Apple', date: new Date('02/15/2024'), soldOut: 569, sales: 15000},
+    {id: '4', isChecked: false, product: 'Milk Tea', name: "John T. Smith", item: 'Caramel', date: new Date('02/15/2024'), soldOut: 569, sales: 15000},
+    {id: '4', isChecked: false, product: 'Fruit Tea', name: "John T. Smith", item: 'Apple', date: new Date('02/15/2024'), soldOut: 569, sales: 15000},
+    {id: '4', isChecked: false, product: 'Fruit Tea', name: "John T. Smith", item: 'Avocado', date: new Date('02/15/2024'), soldOut: 569, sales: 15000, notes: "This is from main branch"},
+    {id: '4', isChecked: false, product: 'Milk Tea', name: "John T. Smith", item: 'Caramel', date: new Date('02/15/2024'), soldOut: 569, sales: 15000},
   ];
 
+  filterEmployees: Employee[] = [];
   employees: Employee[] = [
     {id: "1", isChecked: false, business: "R & L Cafe", firstName: "Steve", lastName: "Doe", age: 28, sex: "Male", startedAt: new Date("04/01/2022"), position: "Crew", salary: 18000},
-    {id: "2", isChecked: false, business: "Lubang's Best", firstName: "Kyle John", middleInitial: "T.", lastName: "Love", age: 28, sex: "Male", startedAt: new Date("04/01/2022"), position: "Crew", salary: 18000},
-    {id: "3", isChecked: false, business: "KJM Sea Foods", firstName: "Lance Jacob", middleInitial: "D.", lastName: "Doe", age: 28, sex: "Male", startedAt: new Date("04/01/2022"), position: "Crew", salary: 18000},
+    {id: "2", isChecked: false, business: "Lubang's Best", firstName: "Kyle John", middleName: "T.", lastName: "Love", age: 28, sex: "Male", startedAt: new Date("04/01/2022"), position: "Crew", salary: 18000},
+    {id: "3", isChecked: false, business: "KJM Sea Foods", firstName: "Lance Jacob", middleName: "D.", lastName: "Doe", age: 28, sex: "Male", startedAt: new Date("04/01/2022"), position: "Crew", salary: 18000},
     {id: "4", isChecked: false, business: "KJM Sea Foods", firstName: "Lawrence", lastName: "Doe", age: 28, sex: "Male", startedAt: new Date("04/01/2022"), position: "Crew", salary: 18000},
-    {id: "5", isChecked: false, business: "KJM Sea Foods", firstName: "Stephen Lance", middleInitial: "L.", lastName: "Smith", age: 28, sex: "Male", startedAt: new Date("04/01/2022"), position: "Crew", salary: 18000},
+    {id: "5", isChecked: false, business: "KJM Sea Foods", firstName: "Stephen Lance", middleName: "L.", lastName: "Smith", age: 28, sex: "Male", startedAt: new Date("04/01/2022"), position: "Crew", salary: 18000},
     {id: "6", isChecked: false, business: "R & L Cafe", firstName: "Steve", lastName: "Doe", age: 28, sex: "Male", startedAt: new Date("04/01/2022"), position: "Crew", salary: 18000},
     {id: "7", isChecked: false, business: "R & L Cafe", firstName: "Steve", lastName: "Doe", age: 28, sex: "Male", startedAt: new Date("04/01/2022"), position: "Crew", salary: 18000},
     {id: "8", isChecked: false, business: "R & L Cafe", firstName: "Steve", lastName: "Doe", age: 28, sex: "Male", startedAt: new Date("04/01/2022"), position: "Crew", salary: 18000},
@@ -105,24 +91,37 @@ export class ProductsComponent {
   search: FormControl;
   productDateOption: FormControl;
   productOption: FormControl;
+  categoryOption: FormControl;
+  stockOption: FormControl;
+  deleteFromOption: FormControl;
 
   constructor(private router: Router, private route: ActivatedRoute) {
     this.search = new FormControl("", []);
     this.productDateOption = new FormControl("", []);
     this.productOption = new FormControl("", []);
+    this.categoryOption = new FormControl("", []);
+    this.stockOption = new FormControl("", []);
+    this.deleteFromOption = new FormControl("", []);
 
     this.productDateOption.setValue(this.productsDateOptions[0]);
     this.productOption.setValue(this.productsOptions[0]);
+    this.categoryOption.setValue(this.categoryOptions[0].text);
+    this.stockOption.setValue(this.stockOptions[0]);
+    this.deleteFromOption.setValue(this.deleteFromOptions[0]);
+    this.filterEmployees = this.employees;
+    this.filterProducts = this.products;
   }
 
   ngOnInit() {
-    this.navigationFrom = this.route.queryParams.subscribe(data => {
+    this.navigation = this.route.queryParams.subscribe(data => {
       if (data['route'] === 'employee') {
         this.tabs[0].active = false;
         this.tabs[1].active = false;
         this.tabs[2].active = true;
       }
-    })
+    });
+
+    this.employees.forEach(employee => this.totalEmployeeSalary += employee.salary);
   }
 
   onCheck(id?: string) {
@@ -164,13 +163,22 @@ export class ProductsComponent {
     this.navigateTo("../add/employee");
   }
 
+  onSelectDate(dateOption: string) {}
+
+  onSelectProduct(productOption: string) {}
+
   onEnterSearch() {
     if (this.tabs[2].active) {
-      this.employees = this.employees.filter(employee => 
+      this.filterEmployees = this.employees.filter(employee => 
         employee.firstName.toLowerCase().includes(this.search.value.toLowerCase()) 
         || employee.lastName.toLowerCase().includes(this.search.value.toLowerCase())
       );
-      console.log(this.employees)
+    }
+  }
+
+  onInputSearch() {
+    if (!this.search.value.trim()) {
+      this.filterEmployees = this.employees;
     }
   }
 
@@ -182,5 +190,7 @@ export class ProductsComponent {
     this.router.navigate([route], {relativeTo: this.route});
   }
 
-  onSelect(e: any) {}
+  onSelectCategory(option: string) {
+    this.categoryOptions.forEach(val => val.text.toLowerCase() === option.toLowerCase() ? val.active = true : val.active = false);
+  }
 }

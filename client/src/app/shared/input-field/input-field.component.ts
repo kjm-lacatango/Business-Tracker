@@ -15,21 +15,25 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 })
 export class InputFieldComponent {
   @Input({ required: true }) control!: FormControl;
+  @Input() validations: InputValidations[] = [];
   @Input() type: string = "text";
   @Input() label!: string;
   @Input() placeholder: string = "";
-  @Input() validations: InputValidations[] = [];
   @Input() autoComplete: string = "off";
-  @Input() options!: string[];
+  @Input() options!: any[];
   @Input() optionFontSize!: string;
+  @Input() selectFontSize!: string;
+  @Input() selectFontWeight!: string;
+  @Input() isTextCenter: boolean = false;
   @Input() pl!: string;
-  @Input() cols: string = '3';
-  @Input() rows: string = '3';
   @Input() width!: string;
   @Input() mt!: string;
+  @Input() cols: string = '3';
+  @Input() rows: string = '3';
   @Output() onSelect = new EventEmitter();
   @Output() onEnterSearch = new EventEmitter();
   @Output() onInputSearch = new EventEmitter();
+  @Output() onDoubleClick = new EventEmitter();
 
   onChange(event: any) {
     this.onSelect.emit(event.target.value);
@@ -41,5 +45,9 @@ export class InputFieldComponent {
 
   onInput() {
     this.onInputSearch.emit();
+  }
+
+  onDblClick() {
+    this.onDoubleClick.emit();
   }
 }

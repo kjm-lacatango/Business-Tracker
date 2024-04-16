@@ -35,24 +35,24 @@ export class ActivitiesComponent {
   filterOnProduct: Activity[] = [];
 
   activities: Activity[] = [
-    {id: '1', isChecked: false, firstName: "Steve", lastName: "Doe", date: new Date('2024-04-12'), noOfCups: 127, sales: 14000, product: "Ice Tea", note: "This is a note from keannu"},
-    {id: '2', isChecked: false, firstName: "Steve", lastName: "Doe", date: new Date('2022-03-20'), noOfCups: 127, sales: 14000, product: "Ice Tea"},
-    {id: '3', isChecked: false, firstName: "Steve", middleName: "de lara", lastName: "Doe", date: new Date('2024-04-12'), noOfCups: 127, sales: 14000, product: "Mocha"},
-    {id: '4', isChecked: false, firstName: "Steve", middleName: "de los santos", lastName: "Doe", date: new Date('2024-04-12'), noOfCups: 127, sales: 14000, product: "Mocha"},
-    {id: '5', isChecked: false, firstName: "Steve", middleName: "Torregoza", lastName: "Doe", date: new Date('2024-04-12'), noOfCups: 127, sales: 14000, product: "Mocha"},
-    {id: '6', isChecked: false, firstName: "Steve", lastName: "Doe", date: new Date('2023-12-21'), noOfCups: 127, sales: 14000, product: "Coffee"},
-    {id: '7', isChecked: false, firstName: "Steve", lastName: "Doe", date: new Date('2022-11-11'), noOfCups: 127, sales: 14000, product: "Coffee"},
-    {id: '8', isChecked: false, firstName: "Steve", lastName: "Doe", date: new Date('2020-11-05'), noOfCups: 127, sales: 14000, product: "Coffee"},
-    {id: '9', isChecked: false, firstName: "Steve", lastName: "Doe", date: new Date('2024-01-12'), noOfCups: 127, sales: 14000, product: "Coffee"},
-    {id: '10', isChecked: false, firstName: "Steve", lastName: "Doe", date: new Date('2024-02-22'), noOfCups: 127, sales: 14000, product: "Coffee"},
-    {id: '11', isChecked: false, firstName: "Steve", lastName: "Doe", date: new Date('2024-03-12'), noOfCups: 127, sales: 14000, product: "Fruit Tea"},
-    {id: '12', isChecked: false, firstName: "Steve", lastName: "Doe", date: new Date('2024-04-12'), noOfCups: 127, sales: 14000, product: "Mocha"},
-    {id: '13', isChecked: false, firstName: "Steve", lastName: "Doe", date: new Date('2024-01-12'), noOfCups: 127, sales: 14000, product: "Fruit Tea"},
-    {id: '14', isChecked: false, firstName: "Steve", lastName: "Doe", date: new Date('2024-02-12'), noOfCups: 127, sales: 14000, product: "Mocha"},
-    {id: '15', isChecked: false, firstName: "Steve", lastName: "Doe", date: new Date('2024-03-12'), noOfCups: 127, sales: 14000, product: "Mocha"},
-    {id: '16', isChecked: false, firstName: "Steve", lastName: "Doe", date: new Date('2024-04-12'), noOfCups: 127, sales: 14000, product: "Fruit Tea"},
-    {id: '17', isChecked: false, firstName: "Steve", lastName: "Doe", date: new Date('2024-01-12'), noOfCups: 127, sales: 14000, product: "Fruit Tea"},
-    {id: '18', isChecked: false, firstName: "Steve", lastName: "Doe", date: new Date('2024-02-12'), noOfCups: 127, sales: 14000, product: "Fruit Tea"},
+    {id: '1', isChecked: false, firstName: "Steve", lastName: "Doe", date: new Date('2024-04-12'), soldOut: 127, sales: 14000, product: "Ice Tea", note: "This is from branch 2"},
+    {id: '2', isChecked: false, firstName: "Steve", lastName: "Doe", date: new Date('2022-03-20'), soldOut: 127, sales: 14000, product: "Ice Tea"},
+    {id: '3', isChecked: false, firstName: "Charisse Joice", middleName: "de lara", lastName: "Jordan", date: new Date('2024-04-12'), soldOut: 127, sales: 14000, product: "Liquor"},
+    {id: '4', isChecked: false, firstName: "Renzel", middleName: "de los santos", lastName: "Avenue", date: new Date('2024-04-12'), soldOut: 127, sales: 14000, product: "Liquor"},
+    {id: '5', isChecked: false, firstName: "Lance", middleName: "Torregoza", lastName: "Smith", date: new Date('2024-04-12'), soldOut: 127, sales: 14000, product: "Liquor"},
+    {id: '6', isChecked: false, firstName: "Steve", lastName: "Doe", date: new Date('2023-12-21'), soldOut: 127, sales: 14000, product: "Coffee",  note: "This is from main branch"},
+    {id: '7', isChecked: false, firstName: "Steve", lastName: "Doe", date: new Date('2022-11-11'), soldOut: 127, sales: 14000, product: "Coffee"},
+    {id: '8', isChecked: false, firstName: "Steve", lastName: "Doe", date: new Date('2020-11-05'), soldOut: 127, sales: 14000, product: "Coffee"},
+    {id: '9', isChecked: false, firstName: "Steve", lastName: "Doe", date: new Date('2024-01-12'), soldOut: 127, sales: 14000, product: "Coffee"},
+    {id: '10', isChecked: false, firstName: "Steve", lastName: "Doe", date: new Date('2024-02-22'), soldOut: 127, sales: 14000, product: "Coffee"},
+    {id: '11', isChecked: false, firstName: "Steve", lastName: "Doe", date: new Date('2024-03-12'), soldOut: 127, sales: 14000, product: "Fruit Tea"},
+    {id: '12', isChecked: false, firstName: "Steve", lastName: "Doe", date: new Date('2024-04-12'), soldOut: 127, sales: 14000, product: "Liquor"},
+    {id: '13', isChecked: false, firstName: "Steve", lastName: "Doe", date: new Date('2024-01-12'), soldOut: 127, sales: 14000, product: "Fruit Tea"},
+    {id: '14', isChecked: false, firstName: "Steve", lastName: "Doe", date: new Date('2024-02-12'), soldOut: 127, sales: 14000, product: "Liquor"},
+    {id: '15', isChecked: false, firstName: "Steve", lastName: "Doe", date: new Date('2024-03-12'), soldOut: 127, sales: 14000, product: "Liquor"},
+    {id: '16', isChecked: false, firstName: "Steve", lastName: "Doe", date: new Date('2024-04-12'), soldOut: 127, sales: 14000, product: "Fruit Tea"},
+    {id: '17', isChecked: false, firstName: "Steve", lastName: "Doe", date: new Date('2024-01-12'), soldOut: 127, sales: 14000, product: "Fruit Tea"},
+    {id: '18', isChecked: false, firstName: "Steve", lastName: "Doe", date: new Date('2024-02-12'), soldOut: 127, sales: 14000, product: "Fruit Tea"},
   ];
 
   search: FormControl;
@@ -75,12 +75,14 @@ export class ActivitiesComponent {
   }
 
   onDelete() {
-    this.filterActivities.forEach(activity => activity.isChecked && console.log(activity.id));
+    this.filterActivities = this.activities.filter(act => !act.isChecked)
   }
 
   onEnterSearch() {
-    this.filterOnProduct = this.filterActivities.filter(activity => activity.product.toLowerCase().includes(this.search.value.toLowerCase()));
-    this.filterActivities = this.filterOnProduct;
+    if (this.search.value.trim()) {
+      this.filterOnProduct = this.activities.filter(activity => activity.product.toLowerCase().includes(this.search.value.toLowerCase()));
+      this.filterActivities = this.filterOnProduct;
+    }
   }
 
   onInputSearch() {
@@ -88,6 +90,7 @@ export class ActivitiesComponent {
       this.filterOnProduct = [];
       this.searchByDate.setValue(this.dateOptions.find(date => date === this.selectedDateOption));
       this.onSelect(this.selectedDateOption);
+      this.searchByDate.setValue(this.dateOptions[0]);
     }
   }
 
@@ -98,34 +101,21 @@ export class ActivitiesComponent {
     switch (optionSelected.toLowerCase()) {
       case 'week':
         const oneWeekAgo = new Date(today.getTime() - (7 * 24 * 60 * 60 * 1000));
-        if (this.search.value && this.filterOnProduct) {
-          this.filterActivities = this.filterOnProduct.filter(item => item.date >= oneWeekAgo);
-        } else {
-          this.filterActivities = this.activities.filter(item => item.date >= oneWeekAgo);
-        }
+        const searchDataForWeek = this.search.value && this.filterOnProduct ? this.filterOnProduct : this.activities;
+        this.filterActivities = searchDataForWeek.filter(item => item.date >= oneWeekAgo);
         break;
       case 'month':
         const oneMonthAgo = new Date(today.getFullYear(), today.getMonth() - 1, today.getDate());
-        if (this.search.value && this.filterOnProduct) {
-          this.filterActivities = this.filterOnProduct.filter(item => item.date >= oneMonthAgo);
-        } else {
-          this.filterActivities = this.activities.filter(item => item.date >= oneMonthAgo);
-        }
+        const searchDataForMonth = this.search.value && this.filterOnProduct ? this.filterOnProduct : this.activities;
+        this.filterActivities = searchDataForMonth.filter(item => item.date >= oneMonthAgo);
         break;
       case 'year':
         const oneYearAgo = new Date(today.getFullYear() - 1, today.getMonth(), today.getDate());
-        if (this.search.value && this.filterOnProduct) {
-          this.filterActivities = this.filterOnProduct.filter(item => item.date >= oneYearAgo);
-        } else {
-          this.filterActivities = this.activities.filter(item => item.date >= oneYearAgo);
-        }
+        const searchDataForYear = this.search.value && this.filterOnProduct ? this.filterOnProduct : this.activities;
+        this.filterActivities = searchDataForYear.filter(item => item.date >= oneYearAgo);
         break;
       case 'all':
-        if (this.search.value && this.filterOnProduct) {
-          this.filterActivities = this.filterOnProduct;
-        } else {
-          this.filterActivities = this.activities;
-        }
+        this.filterActivities = this.search.value && this.filterOnProduct ? this.filterOnProduct : this.activities;
         break;
     }
   }

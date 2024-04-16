@@ -22,10 +22,10 @@
                 <input class="check" type="checkbox" (change)="onChecked()" />
                 <span class="name">Name</span>
                 <span>Product</span>
-                <span>Date</span>
                 <span>Sold</span>
                 <span>Sales</span>
-                <span>Note</span>
+                <span class="tw-mr-2">Date</span>
+                <span class="tw-mr-2">Note</span>
             </div>
         </card-header>
         <card-body px="2rem">
@@ -39,9 +39,9 @@
                             {{ activity.firstName }} {{ getMiddleInitial(activity.middleName) }} {{ activity.lastName }}
                         </span>
                         <span>{{ activity.product }}</span>
-                        <span>{{ activity.date | date: "MMM dd, yyyy" }}</span>
-                        <span>{{ activity.noOfCups }}</span>
+                        <span>{{ activity.soldOut }}</span>
                         <span>₱ {{ activity.sales }}</span>
+                        <span>{{ activity.date | date: "MMM dd, yyyy" }}</span>
                         <span class="note">{{ activity.note ? activity.note : "None" }}</span>
                     </div>
                 </div>

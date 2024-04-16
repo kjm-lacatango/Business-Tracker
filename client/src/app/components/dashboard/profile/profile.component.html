@@ -2,10 +2,12 @@
     <card>
         <card-header px="2rem" pt="1rem">
             <div class="header">
-                <div></div>
+                <div><h1>Recycle Bin</h1></div>
                <span>Profile</span>
                <div class="btn">
-                    <button class="btn-primary-solid">Edit</button>
+                    <button class="btn-primary-solid" (click)="onEdit()" *ngIf="isEdit">Edit</button>
+                    <button class="btn-secondary-solid" (click)="onSave('cancel')" *ngIf="!isEdit">Cancel</button>
+                    <button class="btn-primary-solid" [disabled]="form.invalid" (click)="onSave()" *ngIf="!isEdit">Save</button>
                </div>
             </div>
         </card-header>
@@ -18,11 +20,7 @@
                         <icon type="picture" color="white" width="50" height="50" />
                         <span>Upload Profile</span> 
                     </div>
-                    <div class="email-input">
-                        <input-field type="text" [control]="email" />
-                        <span>edit</span>
-                    </div>
-                    
+                    <input-field class="email" type="text" placeholder="email@gmail.com" [isTextCenter]="true" [control]="email" />
                 </div>
                 <div class="user-info">
                     <div class="complete-name">
@@ -31,13 +29,15 @@
                         <input-field type="text" label="Last Name" [control]="lastName" />
                     </div>
                     <div class="mid">
-                        <input-field type="text" label="Logo Name" [control]="firstName" />
-                        <input-field type="select" [options]="designations" label="Designation" [control]="designation" />
+                        <input-field type="number" label="Age" [control]="age" />
+                        <input-field type="select" [options]="genderOptions" label="Gender" [control]="gender" />
+                        <input-field type="text" label="(optional) Logo" [control]="logo" />
+                        <input-field type="text" label="Designation" [control]="designation" />
                         <!-- <input-field type="text" label="Designation" [control]="designation" /> -->
                     </div>
                 </div>
             </div>
-            <input-field type="textarea" label="(optional) Note" [control]="firstName" />
+            <input-field type="textarea" label="(optional) Note" cols="5" rows="5" [control]="note" />
         </card-body>
     </card>
 </div>

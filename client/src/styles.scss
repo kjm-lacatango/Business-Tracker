@@ -28,7 +28,7 @@ body {
         border-color: rgb(6, 165, 6);
         @apply tw-font-semibold tw-text-white tw-rounded-xl tw-border-2;
 
-        &:hover {
+        &:not(:disabled):hover {
             color: rgb(6, 165, 6);
             @apply tw-bg-white tw-border-2;
         }
@@ -37,12 +37,6 @@ body {
             border-color: lightgreen;
             background: lightgreen;
             @apply tw-cursor-not-allowed;
-            
-            &:hover {
-                border-color: lightgreen;
-                background: lightgreen;
-                @apply tw-text-white;
-            }
         }
     }
 }
@@ -59,12 +53,12 @@ body {
         padding: .5rem 1rem;
         @apply tw-bg-red-500 tw-font-semibold tw-text-white tw-rounded-xl tw-border-2 tw-border-red-500;
 
-        &:hover {
+        &:not(:disabled):hover {
             @apply tw-bg-white tw-border-2 tw-text-red-500;
         }
         
         &:disabled {
-            @apply hover:tw-text-white hover:tw-bg-red-300 tw-border-red-300 tw-bg-red-300 tw-cursor-not-allowed;
+            @apply tw-border-red-300 tw-bg-red-300 tw-cursor-not-allowed;
         }
     }
 }

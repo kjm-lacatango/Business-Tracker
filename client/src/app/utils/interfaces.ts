@@ -21,7 +21,8 @@ export interface Product {
     id: string;
     isChecked: boolean;
     product: string;
-    type: string;
+    name: string;
+    item: string;
     price?: number;
     date: Date;
     soldOut: number;
@@ -36,7 +37,7 @@ export interface Activity {
     middleName?: string;
     lastName: string;
     date: Date;
-    noOfCups: number;
+    soldOut: number;
     sales: number;
     product: string;
     note?: string;

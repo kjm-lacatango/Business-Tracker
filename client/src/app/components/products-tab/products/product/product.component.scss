@@ -2,7 +2,7 @@
     @apply tw-h-full;
 
     .header {
-        @apply tw-grid tw-items-center tw-mt-2;
+        @apply tw-grid tw-items-center;
         grid-template-columns: repeat(3, 1fr);
 
         .back {
@@ -23,7 +23,8 @@
     }
 
     .productName {
-        @apply tw-grid tw-items-end tw-gap-4 tw-mt-6 tw-relative;
+        @apply tw-grid tw-items-end tw-gap-4 tw-relative;
+        margin-top: 3rem;
         grid-template-columns: 40rem auto;
 
         .btn-primary-solid {

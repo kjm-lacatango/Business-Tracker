@@ -5,15 +5,17 @@
                 <div class="header-right" [ngClass]="{products: tabs[0].active}">
                     @if (tabs[0].active) {
                         <input-field type="select"
-                            [options]="productsDateOptions" 
-                            [control]="productDateOption" 
+                            [options]="productsOptions" 
+                            [control]="productOption"
+                            (onSelect)="onSelectProduct($event)"
                         />
                         <input-field type="select"
-                            [options]="productsOptions" 
-                            [control]="productDateOption" 
+                            [options]="productsDateOptions" 
+                            [control]="productDateOption"
+                            (onSelect)="onSelectDate($event)"
                         />
                     }
-                    <input-field type="text" placeholder="Search Name..." (onEnterSearch)="onEnterSearch()"
+                    <input-field type="text" placeholder="Search Name..." (onEnterSearch)="onEnterSearch()" (onInputSearch)="onInputSearch()"
                         [control]="search" *ngIf="!tabs[0].active"
                     >
                         <icon class="icon" type="search" width="20" height="20" color="darkgray" hoverColor="gray" (click)="onEnterSearch()" />
@@ -40,11 +42,12 @@
             @if (tabs[0].active) {
                 <div class="header-table">
                     <input class="check" type="checkbox" (change)="onCheck()" />
-                    <span>Type</span>
+                    <span class="name">Name</span>
+                    <span>Item</span>
                     <span>Price</span>
-                    <span>Date</span>
-                    <span>Sold Out</span>
+                    <span>Sold</span>
                     <span>Sales</span>
+                    <span>Date</span>
                     <span>Note</span>
                 </div>
             }
@@ -59,7 +62,71 @@
                 <tracks></tracks>
             }
             @if (tabs[2].active) {
-                <employee-lists></employee-lists>
+                <div class="others-card">
+                    <div class="others-header-card">
+                        <div class="card">
+                            <span class="title">Category</span>
+                            <input-field class="category" type="select"
+                                optionFontSize="1.3rem" 
+                                selectFontSize="2rem" 
+                                selectFontWeight="bold"
+                                [isTextCenter]="true"
+                                [options]="categoryOptions" 
+                                [control]="categoryOption" 
+                                (onSelect)="onSelectCategory($event)"
+                            />
+                        </div>
+                        <div class="card">
+                            <span class="title">
+                                {{ categoryOptions[0].active ? 'Product' : categoryOptions[1].active ? 'No of Employee' : 'From'}}
+                            </span>
+                            <input-field class="category" type="select" 
+                                *ngIf="categoryOptions[0].active"
+                                optionFontSize="1.3rem" 
+                                selectFontSize="2rem" 
+                                selectFontWeight="bold"
+                                [isTextCenter]="true"
+                                [options]="stockOptions"
+                                [control]="stockOption"
+                            />
+                            <span class="data" *ngIf="categoryOptions[1].active">{{ employees.length }}</span>
+                            <input-field class="category" type="select" 
+                                *ngIf="categoryOptions[2].active"
+                                optionFontSize="1.3rem" 
+                                selectFontSize="2rem" 
+                                selectFontWeight="bold"
+                                [isTextCenter]="true"
+                                [options]="deleteFromOptions"
+                                [control]="deleteFromOption"
+                            />
+                        </div>
+                        <div class="card">
+                            <span class="title">
+                                {{ categoryOptions[0].active ? 'No of Stock' : categoryOptions[1].active ? 'Total Salary' : 'Trash'}}
+                            </span>
+                            <span class="data">
+                                {{ categoryOptions[0].active ? "10" : categoryOptions[1].active ? "₱ " + totalEmployeeSalary : "10" }}
+                            </span>
+                        </div>
+                    </div>
+                
+                    <div class="others-header-table">
+                        <input type="checkbox" />
+                        <span class="name">Name of Employee</span>
+                        <span>Age</span>
+                        <span>Gender</span>
+                        <span>StartedAt</span>
+                        <span>Position</span>
+                        <span>Salary</span>
+                    </div>
+                </div>
+                @if (categoryOptions[0].active) {
+                    <span>stocks</span>
+                } @else if (categoryOptions[1].active) {
+                    <employee-lists [employees]="filterEmployees" />
+                } @else if (categoryOptions[2].active) {
+                    <span>trash</span>
+                }
             }
         </card-body>
         <card-footer px="2rem" pb=".5rem" [sticky]="true" *ngIf="!tabs[2].active">

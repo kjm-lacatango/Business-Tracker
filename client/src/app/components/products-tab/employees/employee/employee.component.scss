@@ -2,7 +2,7 @@
     @apply tw-h-full;
 
     .header {
-        @apply tw-grid tw-items-center tw-mt-2;
+        @apply tw-grid tw-items-center;
         grid-template-columns: repeat(3, 1fr);
 
         .back {
@@ -34,7 +34,7 @@
             justify-content: center;
             align-items: center;
             opacity: 0;
-            transition: .3s ease-out;
+            transition: .1s ease-in;
             margin-top: 2px;
 
             span {

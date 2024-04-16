@@ -29,11 +29,12 @@ export class ProductComponent {
   products: string[] = ['Coffee', 'Milk Tea', 'Fruit Tea'];
   isEditOrAddProduct!: boolean;
   selectedProduct: string = "";
+  isDelete: boolean = false;
 
   form: FormGroup;
   product: FormControl;
   newProduct: FormControl;
-  type: FormControl;
+  item: FormControl;
   date: FormControl;
   soldOut: FormControl;
   price: FormControl;
@@ -47,7 +48,7 @@ export class ProductComponent {
       { error: "required", message: "This field is required." },
       { error: "pattern", message: "Invalid input, please try again." }
     ],
-    type: [
+    item: [
       { error: "required", message: "This field is required." },
       { error: "pattern", message: "Invalid input, please try again." }
     ],
@@ -71,7 +72,7 @@ export class ProductComponent {
   ) {
     this.product = new FormControl("", [Validators.required]);
     this.newProduct = new FormControl("", [Validators.required, Validators.pattern(/^[A-Za-z][ A-Za-z0-9]*$/)]);
-    this.type = new FormControl("", [Validators.required, Validators.pattern(/^[A-Za-z][ A-Za-z0-9]*$/)]);
+    this.item = new FormControl("", [Validators.required, Validators.pattern(/^[A-Za-z][ A-Za-z0-9]*$/)]);
     this.date = new FormControl(new Date().toISOString().substring(0, 10), [Validators.required]);
     this.soldOut = new FormControl("", [Validators.required, Validators.pattern(/^\d+[ A-Za-z]*$/)]);
     this.price = new FormControl("", [Validators.required, Validators.pattern(/^(\d{1,3}(,\d{3})*|\d+)$/)]);
@@ -79,7 +80,7 @@ export class ProductComponent {
 
     this.form = this.fb.group({
       product: this.product,
-      type: this.type,
+      item: this.item,
       date: this.date,
       soldOut: this.soldOut,
       price: this.price,
@@ -131,6 +132,7 @@ export class ProductComponent {
 
   onSelect(option: string) {
     this.selectedProduct = option;
+    this.isDelete = false;
   }
 
   onDelete() {
@@ -138,6 +140,7 @@ export class ProductComponent {
     this.products = this.products.filter((_, i) => i !== productIdx);
     this.product.setValue("");
     this.markAsPristineAndUntouched(this.product);
+    this.isDelete = false;
   }
 
   onSave() {

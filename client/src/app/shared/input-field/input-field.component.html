@@ -1,8 +1,8 @@
 <div class="field" [ngStyle]="{width: width, 'margin-top': mt}">
     <label [for]="label" *ngIf="label">{{ label + ":" }}</label>
-    @if (type === "text" || type === "date") {
+    @if (type === "text" || type === "date" || type === "number") {
         <input class="input" 
-            [ngClass]="{error: (control.dirty || control.touched) && control.errors}" 
+            [ngClass]="{error: (control.dirty || control.touched) && control.errors, center: isTextCenter}" 
             [id]="label"
             [type]="type"
             [formControl]="control"
@@ -14,15 +14,19 @@
         />
         <ng-content selector=".icon"></ng-content>
     } @else if (type === "select") {
-        <select class="input" 
-            [ngClass]="{error: (control.dirty || control.touched) && control.errors}" 
+        <select class="input select"
+            [ngClass]="{error: (control.dirty || control.touched) && control.errors, center: isTextCenter}" 
+            [ngStyle]="{'font-size': selectFontSize, 'font-weight': selectFontWeight}"
             [id]="label"
             [formControl]="control"
             (change)="onChange($event)"
+            (dblclick)="onDblClick()"
         >
             @for (option of options; track $index) {
-                <option [value]="option" [ngStyle]="{'font-size': optionFontSize}">
-                    {{ option }}
+                <option [value]="option.text ? option.text : option"
+                    [ngStyle]="{'font-size': optionFontSize}"
+                >
+                    {{ option.text ? option.text : option }}
                 </option>
             }
         </select>
