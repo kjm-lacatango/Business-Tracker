@@ -12,11 +12,10 @@
             (keydown.enter)="onEnter()"
             (input)="onInput()"
         />
-        <ng-content selector=".icon"></ng-content>
     } @else if (type === "select") {
         <select class="input select"
             [ngClass]="{error: (control.dirty || control.touched) && control.errors, center: isTextCenter}" 
-            [ngStyle]="{'font-size': selectFontSize, 'font-weight': selectFontWeight}"
+            [ngStyle]="{'font-size': selectFontSize, 'font-weight': selectFontWeight, cursor: cursor}"
             [id]="label"
             [formControl]="control"
             (change)="onChange($event)"
@@ -46,4 +45,6 @@
             <span class="error-message">{{ validation.message }}</span>
         }
     }
+    <ng-content selector=".icon"></ng-content>
+    <ng-content selector=".select"></ng-content>
 </div>

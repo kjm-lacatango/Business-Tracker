@@ -1,11 +1,11 @@
-.others-header-list {
+.investor {
     @apply tw-grid tw-border tw-items-center tw-rounded-md tw-mb-2 tw-text-nowrap tw-cursor-pointer tw-text-center tw-shadow-md tw-shadow-gray-300;
-    grid-template-columns: 2rem 1fr;
+    grid-template-columns: 2rem auto;
     height: 3rem;
 
     .no-checkbox {
         @apply tw-grid tw-items-center;
-        grid-template-columns: 18rem 6rem 6rem repeat(3, 1fr);
+        grid-template-columns: 18rem repeat(3, 1fr) 16rem;
     }
 
     &:hover {
@@ -18,5 +18,10 @@
         img {
             @apply tw-border tw-border-green-500 tw-h-6 tw-w-6 tw-rounded-full;
         }
+    }
+
+    .note {
+        @apply tw-text-wrap tw-pr-2;
+        font-size: .95rem;
     }
 }

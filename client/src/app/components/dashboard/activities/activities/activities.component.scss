@@ -16,6 +16,16 @@
                 bottom: .4rem;
                 right: .4rem;
             }
+
+            .select {
+                @apply tw-absolute tw-bg-white tw-text-gray-400 tw-cursor-default tw-font-normal;
+                top: -1.3rem;
+                left: .8rem;
+                width: 2.4rem;
+                height: .1rem;
+                font-size: .8rem;
+                padding-bottom: 1.6rem;
+            }
         }
 
         .btn {

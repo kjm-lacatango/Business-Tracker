@@ -88,8 +88,7 @@ export class ActivitiesComponent {
   onInputSearch() {
     if (this.search.dirty && !this.search.value) {
       this.filterOnProduct = [];
-      this.searchByDate.setValue(this.dateOptions.find(date => date === this.selectedDateOption));
-      this.onSelect(this.selectedDateOption);
+      this.filterActivities = this.activities;
       this.searchByDate.setValue(this.dateOptions[0]);
     }
   }

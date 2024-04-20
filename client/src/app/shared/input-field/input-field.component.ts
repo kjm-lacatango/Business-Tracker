@@ -30,6 +30,7 @@ export class InputFieldComponent {
   @Input() mt!: string;
   @Input() cols: string = '3';
   @Input() rows: string = '3';
+  @Input() cursor: string = "pointer";
   @Output() onSelect = new EventEmitter();
   @Output() onEnterSearch = new EventEmitter();
   @Output() onInputSearch = new EventEmitter();

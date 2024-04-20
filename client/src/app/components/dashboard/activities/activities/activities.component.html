@@ -3,7 +3,9 @@
         <card-header px="2rem" pt="1rem" pb=".5rem" [sticky]="true">
             <div class="header">
                 <div class="header-right">
-                    <input-field type="select" [options]="dateOptions" [control]="searchByDate" (onSelect)="onSelect($event)" />
+                    <input-field type="select" [options]="dateOptions" [control]="searchByDate" (onSelect)="onSelect($event)">
+                        <span class="select">Date</span>
+                    </input-field>
                     <input-field type="text" [control]="search" placeholder="Search Product..."
                     (onEnterSearch)="onEnterSearch()" (onInputSearch)="onInputSearch()">
                         <icon class="icon" type="search" width="20" height="20" color="darkgray" hoverColor="gray" (click)="onEnterSearch()" />
@@ -20,12 +22,12 @@
             </div>
             <div class="table-header">
                 <input class="check" type="checkbox" (change)="onChecked()" />
-                <span class="name">Name</span>
-                <span>Product</span>
+                <span class="name">Name of Member</span>
+                <span>Products</span>
                 <span>Sold</span>
                 <span>Sales</span>
                 <span class="tw-mr-2">Date</span>
-                <span class="tw-mr-2">Note</span>
+                <span class="tw-mr-2">Notes</span>
             </div>
         </card-header>
         <card-body px="2rem">

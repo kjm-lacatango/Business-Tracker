@@ -15,7 +15,7 @@ import { IconsComponent } from '../../../../shared/icons/icons.component';
   styleUrl: './lists.component.scss'
 })
 export class ProductListsComponent {
-  @Input() product !: Product;
+  @Input() product!: Product;
   @Output() onCheck = new EventEmitter();
 
   constructor(private router: Router, private route: ActivatedRoute) {}

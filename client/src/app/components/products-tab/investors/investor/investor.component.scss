@@ -1,0 +1,69 @@
+.header {
+    @apply tw-grid tw-items-center;
+    grid-template-columns: repeat(3, 1fr);
+
+    .back {
+        @apply tw-flex tw-justify-start;
+    }
+
+    .title {
+        @apply tw-text-3xl tw-font-semibold tw-text-center tw-text-nowrap;
+    }
+
+    .btn {
+        @apply tw-flex tw-justify-end;
+    }
+}
+
+.profile-pic {
+    @apply tw-mt-8 tw-flex tw-justify-center tw-relative;
+
+    .employee-profile {
+        @apply tw-w-36 tw-h-36 tw-rounded-full tw-border-2;
+        border-color: rgb(6, 165, 6);
+    }
+
+    .upload-profile {
+        @apply tw-absolute tw-h-36 tw-w-36 tw-rounded-full tw-cursor-pointer;
+        background: linear-gradient(to top, rgb(65, 65, 65), transparent);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: .1s ease-in;
+        margin-top: 2px;
+
+        span {
+            @apply tw-font-semibold tw-text-white;
+            margin-top: 1rem;
+            font-size: 1rem;
+        }
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
+
+.name {
+    @apply tw-grid tw-items-center tw-gap-4 tw-mt-2;
+    grid-template-columns: 35rem 1fr;
+}
+
+.amount {
+    @apply tw-grid tw-items-end tw-gap-6 tw-mt-6;
+    grid-template-columns: 1fr 1fr;
+
+    .btn {
+        @apply tw-flex tw-gap-2 tw-items-start;
+
+        .btn-primary-solid, .btn-secondary-solid {
+            @apply tw-py-1;
+        }
+    }
+}
+
+.icon {
+    @apply tw-absolute tw-bottom-1 tw-left-2 tw-text-gray-700;
+}

@@ -1,1 +1,13 @@
-<p>lists works!</p>
+<div class="stock-card" *ngFor="let stock of stocks" (click)="onUpdate(stock.id)">
+    <span class="name">
+        <!-- <img alt="user" /> -->
+        <icon type="user-icon" />
+        {{ stock.updatedBy }}
+    </span>
+    <span>{{ stock.item }}</span>
+    <span>{{ stock.addedStock }}</span>
+    <span>{{ stock.recentStock }}</span>
+    <span class="tw-font-semibold">{{ stock.currentStock }}</span>
+    <span>₱ {{ stock.costAdded }}</span>
+    <span>{{ stock.updatedOn | date: "MMM dd, YYYY" }}</span>
+</div>

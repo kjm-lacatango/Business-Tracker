@@ -1,0 +1,49 @@
+<div class="tw-h-full">
+    <card>
+        <card-header px="2rem" pt="1rem">
+            <div class="header">
+                <div class="back">
+                  <icon (click)="back()" type="arrow" color="rgb(6, 165, 6)" hoverColor="rgb(6, 135, 6)" />
+                </div>
+                <span class="title">{{investmentId ? 'Edit' : 'Add' }} Investor</span>
+                <div class="btn">
+                    <button class="btn-primary-solid" [disabled]="form.invalid" (click)="onSave()">
+                        {{investmentId ? 'Save' : 'Add' }}
+                    </button>
+                </div>
+            </div>
+        </card-header>
+        <card-body px="2rem" height="100%">
+            <div class="profile-pic">
+                <!-- <img class="employee-profile" src="#" alt="employee-profile" /> -->
+                <icon type="user-icon" width="150" height="150" cursor="default" />
+                <div class="upload-profile">
+                    <icon type="picture" color="white" width="50" height="50" />
+                    <span>Upload Profile</span> 
+                </div>
+            </div>
+            <div class="name">
+                <input-field type="text" label="Name of Investor" [control]="name" />
+                <input-field type="text" label="Total Money" pl="1.5rem" [control]="totalMoney" *ngIf="investmentId">
+                    <span class="icon">₱</span>
+                </input-field>
+            </div>
+            <div class="amount">
+                <input-field type="text" label="Amount" pl="1.5rem" [control]="amount" *ngIf="!investmentId">
+                    <span class="icon">₱</span>
+                </input-field>
+                <input-field type="date" label="Date" [control]="date" *ngIf="!investmentId" />
+                <input-field type="text" pl="1.5rem" [label]="!isEditAmount ? 'Amount' : 'Withdraw'" [control]="getAmount" *ngIf="investmentId">
+                    <span class="icon">₱</span>
+                </input-field>
+                <div class="btn" *ngIf="investmentId">
+                    <button class="btn-primary-solid" (click)="onSaveAmount()" [disabled]="isEditAmount && getAmount.invalid">
+                        {{ !isEditAmount ? 'Withdraw' : 'Save'}}
+                    </button>
+                    <button class="btn-secondary-solid" (click)="isEditAmount = false" *ngIf="isEditAmount">Cancel</button>
+                </div>
+            </div>
+            <input-field type="textarea" label="Note" [control]="note" mt="1.5rem" />
+        </card-body>
+    </card>
+</div>

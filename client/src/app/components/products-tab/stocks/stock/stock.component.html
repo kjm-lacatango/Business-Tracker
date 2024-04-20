@@ -1,1 +1,42 @@
-<p>stock works!</p>
+<div class="stock">
+    <card>
+        <card-header px="2rem" pt="1rem">
+            <div class="header">
+                <div class="back">
+                    <icon (click)="back()" type="arrow" color="rgb(6, 165, 6)" hoverColor="rgb(6, 135, 6)" />
+                </div>
+                <span class="title">{{stockId ? 'Edit' : 'Add' }} Stock</span>
+                <div class="btn">
+                    <button class="btn-primary-solid" [disabled]="form.invalid" (click)="onSave()">
+                        {{stockId ? 'Save' : 'Add' }}
+                    </button>
+                </div>
+            </div>
+        </card-header>
+        <card-body px="3rem" height="100%">
+            <div class="top">
+                <input-field type="select" [options]="products" label="Product" [control]="product" />
+                <input-field type="select" [options]="items" label="Items" [control]="item" />
+            </div>
+            <div class="mid">
+                <input-field type="text" label="Current Stock" [control]="currentStock" />
+                <input-field type="text" label="Add Stock" [control]="addStock" />
+            </div>
+            <input-field type="text" label="Cost" [control]="cost" width="35rem" mt="1.5rem" />
+            <div class="bot">
+                <div class="user">
+                    <span>Last Update By:</span>
+                    <div class="name">
+                        <icon type="user-icon" width="5rem" height="5rem" />
+                        <!-- <img src="../../../../../favicon.ico" alt="user" /> -->
+                        <span class="tw-text-xl tw-font-semibold">Patrice Joy P. Jordan</span>
+                    </div>
+                </div>
+                <div class="date">
+                    <h1>Last Update On:</h1>
+                    <div class="data">{{ update.value | date: "MMMM dd, YYYY" }}</div> 
+                </div>
+            </div>
+        </card-body>
+    </card>
+</div>

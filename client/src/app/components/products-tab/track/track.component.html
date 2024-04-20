@@ -2,13 +2,15 @@
     <span>Graph</span>
     <span>Name of Product</span>
     <span>Sold Out</span>
-    <span>All Income</span>
+    <span>Capital</span>
+    <span>Profit</span>
 </div>
 <div class="table-list-track" *ngFor="let track of tracks; index as i">
     <span class="boxColor" [ngClass]="'color-'+i.toString()"></span>
     <span>{{ track.productName }}</span>
     <span>{{ track.soldOut }}</span>
-    <span>₱ {{ track.totalIncome }}</span>
+    <span>₱ {{ track.capital }}</span>
+    <span>₱ {{ track.profit }}</span>
 </div>
 
 <div class="graph-card">

@@ -1,11 +1,11 @@
 .header-table-track {
     @apply tw-grid tw-items-center tw-text-center tw-font-semibold tw-text-nowrap tw-mb-2;
-    grid-template-columns: 6rem repeat(3, 1fr);
+    grid-template-columns: 6rem repeat(4, 1fr);
 }
 
 .table-list-track {
     @apply tw-grid tw-items-center tw-text-center;
-    grid-template-columns: 6rem repeat(3, 1fr);
+    grid-template-columns: 6rem repeat(4, 1fr);
     margin-bottom: .2rem;
 
     .boxColor {

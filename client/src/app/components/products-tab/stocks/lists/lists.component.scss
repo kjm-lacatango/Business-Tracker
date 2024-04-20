@@ -1,0 +1,22 @@
+.stock-card {
+    @apply tw-grid tw-border tw-text-nowrap tw-rounded-md tw-cursor-pointer tw-mb-2 tw-text-center tw-shadow-md tw-shadow-gray-300 tw-px-2;
+    grid-template-columns: 16rem repeat(5, 1fr) 11rem;
+    height: 3rem;
+    align-items: center;
+
+    &:hover {
+        @apply tw-text-gray-400;
+    } 
+            
+    .name {
+        @apply tw-text-start tw-pl-4 tw-flex tw-gap-2 tw-items-center;
+
+        img {
+            @apply tw-border tw-border-green-500 tw-h-6 tw-w-6 tw-rounded-full;
+        }
+    }
+
+    .check {
+        width: .85rem;
+    }
+}

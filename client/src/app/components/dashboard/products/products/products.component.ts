@@ -15,6 +15,8 @@ import { InputFieldComponent } from '../../../../shared/input-field/input-field.
 import { IconsComponent } from '../../../../shared/icons/icons.component';
 import { FormControl } from '@angular/forms';
 import { Employee, Product } from '../../../../utils/interfaces';
+import { StockListsComponent } from '../../../products-tab/stocks/lists/lists.component';
+import { InvestorsListsComponent } from '../../../products-tab/investors/lists/lists.component';
 
 @Component({
   selector: 'app-products',
@@ -31,7 +33,9 @@ import { Employee, Product } from '../../../../utils/interfaces';
     EmployeeComponent,
     EmployeeListsComponent,
     InputFieldComponent,
-    IconsComponent
+    IconsComponent,
+    StockListsComponent,
+    InvestorsListsComponent
   ],
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss'
@@ -41,6 +45,7 @@ export class ProductsComponent {
   isCheckedAll: boolean = false;
   isDelete: boolean = false;
   totalEmployeeSalary: number = 0;
+  investmentAmount: number = 0;
 
   tabs = [
     {text: "Products", active: true},
@@ -53,10 +58,9 @@ export class ProductsComponent {
   categoryOptions: any[] = [
     { text: "Stock", active: true },
     { text: "Employee", active: false },
-    { text: "Trash", active: false },
+    { text: "Investors", active: false }
   ];
   stockOptions: string[] = ["Liquor", "Coffee", "Milk Tea", "Fruit Tea"];
-  deleteFromOptions: string[] = ["All", "Products", "Activities", "Employees", "Stocks", "Track"];
 
   filterProducts: Product[] = [];
   products: Product[] = [
@@ -75,6 +79,16 @@ export class ProductsComponent {
     {id: '4', isChecked: false, product: 'Milk Tea', name: "John T. Smith", item: 'Caramel', date: new Date('02/15/2024'), soldOut: 569, sales: 15000},
   ];
 
+  filterStocks: any[] = [];
+  stocks: any[] = [
+    {id: "1", isChecked: false, updatedBy: "Steve Doe", product: "Liquor", item: "Alfonso", addedStock: 100, recentStock: 2000, currentStock: 500, costAdded: 15000, updatedOn: new Date("2023-12-10")},
+    {id: "2", isChecked: false, updatedBy: "Patrice Joy P. Jordan", product: "Liquor", item: "Beer", addedStock: 100, recentStock: 2000, currentStock: 1500, costAdded: 15000, updatedOn: new Date("2024-04-10")},
+    {id: "3", isChecked: false, updatedBy: "Hans L. Smith", product: "Liquor", item: "Gin", currentStock: 2000, addedStock: 100, recentStock: 2000, costAdded: 1500, updatedOn: new Date("2024-04-10")},
+    {id: "4", isChecked: false, updatedBy: "Patrice Joy P. Jordan", product: "Coffee", item: "Caramel", addedStock: 100, recentStock: 2000, currentStock: 1000, costAdded: 15000, updatedOn: new Date("2024-04-10")},
+    {id: "5", isChecked: false, updatedBy: "Clyde Joseph T. Poland", product: "Fruit Tea", item: "Avocado", addedStock: 100, recentStock: 2000, currentStock: 200, costAdded: 15000, updatedOn: new Date("2024-04-10")},
+    {id: "6", isChecked: false, updatedBy: "Clyde Joseph T. Poland", product: "Fruit Tea", item: "Apple", addedStock: 100, recentStock: 2000, currentStock: 1000, costAdded: 15000, updatedOn: new Date("2024-04-10")},
+  ];
+
   filterEmployees: Employee[] = [];
   employees: Employee[] = [
     {id: "1", isChecked: false, business: "R & L Cafe", firstName: "Steve", lastName: "Doe", age: 28, sex: "Male", startedAt: new Date("04/01/2022"), position: "Crew", salary: 18000},
@@ -88,12 +102,19 @@ export class ProductsComponent {
     {id: "9", isChecked: false, business: "R & L Cafe", firstName: "Steve", lastName: "Doe", age: 28, sex: "Male", startedAt: new Date("04/01/2022"), position: "Crew", salary: 18000},
   ];
 
+  filterInvestors: any[] = [];
+  investors: any[] = [
+    {id: "1", isChecked: false, name: "Joseph P. Garcia", amount: 10000, profit: 5000, updatedOn: new Date("2024-02-20")},
+    {id: "2", isChecked: false, name: "Aliaza Joy L. Doe", amount: 10000, profit: 5000, updatedOn: new Date("2024-02-20"), note: "She wants her investment profit added to her investment amount."},
+    {id: "3", isChecked: false, name: "Maria Anica B. Smith", amount: 10000, profit: 5000, updatedOn: new Date("2024-02-20")},
+    {id: "4", isChecked: false, name: "Ryan Abraham I. David", amount: 10000, profit: 5000, updatedOn: new Date("2024-02-20")},
+  ];
+
   search: FormControl;
   productDateOption: FormControl;
   productOption: FormControl;
   categoryOption: FormControl;
   stockOption: FormControl;
-  deleteFromOption: FormControl;
 
   constructor(private router: Router, private route: ActivatedRoute) {
     this.search = new FormControl("", []);
@@ -101,15 +122,15 @@ export class ProductsComponent {
     this.productOption = new FormControl("", []);
     this.categoryOption = new FormControl("", []);
     this.stockOption = new FormControl("", []);
-    this.deleteFromOption = new FormControl("", []);
 
     this.productDateOption.setValue(this.productsDateOptions[0]);
     this.productOption.setValue(this.productsOptions[0]);
     this.categoryOption.setValue(this.categoryOptions[0].text);
     this.stockOption.setValue(this.stockOptions[0]);
-    this.deleteFromOption.setValue(this.deleteFromOptions[0]);
     this.filterEmployees = this.employees;
     this.filterProducts = this.products;
+    this.filterStocks = this.stocks;
+    this.filterInvestors = this.investors;
   }
 
   ngOnInit() {
@@ -118,10 +139,27 @@ export class ProductsComponent {
         this.tabs[0].active = false;
         this.tabs[1].active = false;
         this.tabs[2].active = true;
+        this.categoryOptions[0].active = false;
+        this.categoryOptions[1].active = true;
+        this.categoryOptions[2].active = false;
+        this.categoryOption.setValue(this.categoryOptions[1].text);
+      } else if (data['route'] === 'stock') {
+        this.tabs[0].active = false;
+        this.tabs[1].active = false;
+        this.tabs[2].active = true;
+      } else if (data['route'] === 'investor') {
+        this.tabs[0].active = false;
+        this.tabs[1].active = false;
+        this.tabs[2].active = true;
+        this.categoryOptions[0].active = false;
+        this.categoryOptions[1].active = false;
+        this.categoryOptions[2].active = true;
+        this.categoryOption.setValue(this.categoryOptions[2].text);
       }
     });
 
     this.employees.forEach(employee => this.totalEmployeeSalary += employee.salary);
+    this.investors.forEach(investor => this.investmentAmount += investor.amount);
   }
 
   onCheck(id?: string) {
@@ -159,13 +197,65 @@ export class ProductsComponent {
       this.navigateTo("../add/product");
       return;
     }
+    if (this.tabs[2].active && this.categoryOptions[0].active) {
+      this.navigateTo("../add/stock");
+      return;
+    }
+    if (this.tabs[2].active && this.categoryOptions[2].active) {
+      this.navigateTo("../add/investor");
+      return;
+    }
     
     this.navigateTo("../add/employee");
   }
 
-  onSelectDate(dateOption: string) {}
+  onSelectDate(dateOption: string) {
+    const currentDate = new Date();
+    if (dateOption.toLowerCase() === 'all') {
+      this.filterProducts = this.products;
+    } else if (dateOption.toLowerCase() === 'day') {
+      this.filterProducts = this.products.filter(item => {
+        const itemDate = new Date(item.date);
+        return itemDate.getFullYear() === currentDate.getFullYear() &&
+               itemDate.getMonth() === currentDate.getMonth() &&
+               itemDate.getDate() === currentDate.getDate();
+      });
+    } else if (dateOption.toLowerCase() === 'week') {
+      const firstDayOfWeek = new Date(currentDate);
+      firstDayOfWeek.setDate(firstDayOfWeek.getDate() - firstDayOfWeek.getDay());
+      const lastDayOfWeek = new Date(currentDate);
+      lastDayOfWeek.setDate(lastDayOfWeek.getDate() + (6 - lastDayOfWeek.getDay()));
 
-  onSelectProduct(productOption: string) {}
+      this.filterProducts = this.products.filter(item => {
+        const itemDate = new Date(item.date);
+        return itemDate >= firstDayOfWeek && itemDate <= lastDayOfWeek;
+      });
+    } else if (dateOption.toLowerCase() === 'month') {
+      const firstDayOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
+      const lastDayOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0);
+
+      this.filterProducts = this.products.filter(item => {
+        const itemDate = new Date(item.date);
+        return itemDate >= firstDayOfMonth && itemDate <= lastDayOfMonth;
+      });
+    } else if (dateOption.toLowerCase() === 'year') {
+      const firstDayOfYear = new Date(currentDate.getFullYear(), 0, 1);
+      const lastDayOfYear = new Date(currentDate.getFullYear(), 11, 31);
+
+      this.filterProducts = this.products.filter(item => {
+        const itemDate = new Date(item.date);
+        return itemDate >= firstDayOfYear && itemDate <= lastDayOfYear;
+      });
+    }
+  }
+
+  onSelectProduct(productOption: string) {
+    if (productOption.toLowerCase() === 'all') {
+      this.filterProducts = this.products;
+      return;
+    }
+    this.filterProducts = this.products.filter(item => item.product === productOption);
+  }
 
   onEnterSearch() {
     if (this.tabs[2].active) {

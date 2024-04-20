@@ -6,7 +6,8 @@ interface Track {
   productName: string;
   height: string;
   soldOut: number;
-  totalIncome: number;
+  capital: number;
+  profit: number;
 }
 
 @Component({
@@ -20,8 +21,8 @@ interface Track {
 })
 export class TrackComponent {
   tracks: Track[] = [
-    {id: "1", productName: "Ice Tea", height: '80%', soldOut: 1000, totalIncome: 1500000},
-    {id: "2", productName: "Milk Tea", height: '55%', soldOut: 1000, totalIncome: 1500000},
-    {id: "3", productName: "Fruit Tea", height: '70%', soldOut: 1000, totalIncome: 1500000},
+    {id: "1", productName: "Ice Tea", height: '80%', soldOut: 1000, capital: 150000, profit: 1500000},
+    {id: "2", productName: "Milk Tea", height: '55%', soldOut: 1000, capital: 150000, profit: 1500000},
+    {id: "3", productName: "Fruit Tea", height: '70%', soldOut: 1000, capital: 150000, profit: 1500000},
   ];
 }

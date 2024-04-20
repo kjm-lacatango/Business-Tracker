@@ -34,38 +34,39 @@ export class HomeComponent {
   set messageCardRef(ref: ElementRef | undefined) {
     if (ref) {
       this.messageCard = ref.nativeElement;
-      if (this.tabs[1].active) {
+      if (this.tabs[2].active) {
         this.scrollToBottom();
       }
     }
   }
 
-  productOptions: string[] = ["All", "Liquor", "Soft Drink", "Snack"];
+  productOptions: string[] = ["All", "Liquor", "Cigarette", "Snack", "Soft Drink"];
+  filterProductItems: any[] = [];
   productItems: any[] = [
     {id: "1", product: "Liquor", item: "Alfonso", capital: "P 15,000", profit: "P 30,000"},
     {id: "2", product: "Liquor", item: "Beer", capital: "P 15,000", profit: "P 30,000"},
-    {id: "3", product: "Soft Drinks", item: "Coke", capital: "P 10,000", profit: "P 30,000"},
-    // {id: "1", product: "Liquor", item: "Alfonso", capital: "P 15,000", profit: "P 30,000"},
-    // {id: "2", product: "Liquor", item: "Beer", capital: "P 15,000", profit: "P 30,000"},
-    // {id: "3", product: "Soft Drinks", item: "Coke", capital: "P 10,000", profit: "P 30,000"},
-    // {id: "1", product: "Liquor", item: "Alfonso", capital: "P 15,000", profit: "P 30,000"},
-    // {id: "2", product: "Liquor", item: "Beer", capital: "P 15,000", profit: "P 30,000"},
-    // {id: "3", product: "Soft Drinks", item: "Coke", capital: "P 10,000", profit: "P 30,000"},
-    // {id: "1", product: "Liquor", item: "Alfonso", capital: "P 15,000", profit: "P 30,000"},
-    // {id: "2", product: "Liquor", item: "Beer", capital: "P 15,000", profit: "P 30,000"},
-    // {id: "3", product: "Soft Drinks", item: "Coke", capital: "P 10,000", profit: "P 30,000"},
-    // {id: "1", product: "Liquor", item: "Alfonso", capital: "P 15,000", profit: "P 30,000"},
-    // {id: "2", product: "Liquor", item: "Beer", capital: "P 15,000", profit: "P 30,000"},
-    // {id: "3", product: "Soft Drinks", item: "Coke", capital: "P 10,000", profit: "P 30,000"},
-    // {id: "1", product: "Liquor", item: "Alfonso", capital: "P 15,000", profit: "P 30,000"},
-    // {id: "2", product: "Liquor", item: "Beer", capital: "P 15,000", profit: "P 30,000"},
+    {id: "3", product: "Liquor", item: "Gin", capital: "P 15,000", profit: "P 30,000"},
+    {id: "4", product: "Cigarette", item: "Marlboro", capital: "P 10,000", profit: "P 30,000"},
+    {id: "5", product: "Cigarette", item: "Hope", capital: "P 15,000", profit: "P 30,000"},
+    {id: "6", product: "Cigarette", item: "Champion", capital: "P 15,000", profit: "P 30,000"},
+    {id: "7", product: "Soft Drink", item: "Coke Mismo", capital: "P 10,000", profit: "P 30,000"},
+    {id: "8", product: "Soft Drink", item: "Coke Zero", capital: "P 10,000", profit: "P 30,000"},
+    {id: "9", product: "Soft Drink", item: "1.5 Coke", capital: "P 10,000", profit: "P 30,000"},
+    {id: "10", product: "Soft Drink", item: "1.65 Coke", capital: "P 10,000", profit: "P 30,000"},
+    {id: "11", product: "Soft Drink", item: "Sprite Mismo", capital: "P 10,000", profit: "P 30,000"},
+    {id: "12", product: "Soft Drink", item: "1.5 Sprite", capital: "P 10,000", profit: "P 30,000"},
+    {id: "13", product: "Soft Drink", item: "1.65 Sprite", capital: "P 10,000", profit: "P 30,000"},
+    {id: "14", product: "Soft Drink", item: "Royal Mismo", capital: "P 10,000", profit: "P 30,000"},
+    {id: "15", product: "Soft Drink", item: "1.5 Royal", capital: "P 10,000", profit: "P 30,000"},
+    {id: "16", product: "Soft Drink", item: "1.65 Royal", capital: "P 10,000", profit: "P 30,000"},
+    {id: "17", product: "Snack", item: "Piatos", capital: "P 15,000", profit: "P 30,000"},
+    {id: "18", product: "Snack", item: "Nova", capital: "P 15,000", profit: "P 30,000"},
+    {id: "19", product: "Snack", item: "Tortillos", capital: "P 15,000", profit: "P 30,000"},
+    {id: "20", product: "Snack", item: "Green Piece", capital: "P 15,000", profit: "P 30,000"},
+    {id: "21", product: "Snack", item: "Cracklings", capital: "P 15,000", profit: "P 30,000"},
   ];
 
-  tabs: Tab[] = [
-    { text: "Members", active: true},
-    { text: "Chat Room", active: false},
-    { text: "Notifications", active: false},
-  ];
+  tabs: Tab[] = [{ text: "Notifications", active: true}, { text: "Members", active: false}];
 
   members: any[] = [
     { id: "1", firstName: "Steve", lastName: "Doe", designation: "Admin", startedOn: new Date("2023-01-10")},
@@ -91,11 +92,11 @@ export class HomeComponent {
   ];
 
   notifications: any[] = [
-    {id: "1", status: "error", message: "Incorrect sales computation in item alfonso from Products"},
-    {id: "1", status: "error", message: "Out of stock in item alfonso"},
-    {id: "2", status: "warning", message: "Stock is running low in item beer"},
-    {id: "3", status: "info", message: "New member added"},
-    {id: "4", status: "info", message: "Added stock in item beer"},
+    {id: "1", status: "Error", message: "Incorrect sales computation in item alfonso from Products", createdAt: new Date("2024-04-17 14:12:10")},
+    {id: "1", status: "Error", message: "Out of stock in item alfonso", createdAt: new Date("2024-04-17 13:12:30")},
+    {id: "2", status: "Warning", message: "Stock is running low in item beer", createdAt: new Date("2024-04-17 12:01:10")},
+    {id: "3", status: "Info", message: "New member added", createdAt: new Date("2024-04-17 12:02:30")},
+    {id: "4", status: "Info", message: "Added stock in item beer", createdAt: new Date("2024-01-17 12:10:30")},
   ];
 
   product: FormControl;
@@ -108,18 +109,35 @@ export class HomeComponent {
     this.search = new FormControl("", []);
 
     this.product.setValue(this.productOptions[0]);
+    if (this.members.length) this.tabs.push({ text: "Chat Room", active: false})
+  }
+
+  ngOnInit() {
+    this.onSelectProduct();
   }
 
   onSelectTab(selectedTab: Tab) {
     this.tabs.forEach(tab => tab.text === selectedTab.text ? tab.active = true : tab.active = false);
   }
 
-  onDoubleClick(id: string, fromMember?: string) {
-    if (fromMember) {
-      alert("this should only work for admin |====| member id"+id);
+  onEnterSearch() {}
+
+  onInputSearch() {}
+
+  onSelectProduct() {
+    if (this.product.value.toLowerCase() === "all") {
+      this.filterProductItems = this.productItems;
       return;
     }
-    alert("Want to delete? or update? wait there. Here's the id you've selected -> "+id);
+    this.filterProductItems = this.productItems.filter(item => item.product.toLowerCase() === this.product.value.toLowerCase());
+  }
+
+  onDoubleClick(id: string, fromMember?: string) {
+    if (fromMember) {
+      confirm("Would you like to remove this member?. Here's the id you've selected -> "+id);
+      return;
+    }
+    confirm("Want to delete your message?. Here's the id you've selected -> "+id);
   }
 
   scrollToBottom() {

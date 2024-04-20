@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TrashComponent } from './trash.component';
+import { InvestorsListsComponent } from './lists.component';
 
-describe('TrashComponent', () => {
-  let component: TrashComponent;
-  let fixture: ComponentFixture<TrashComponent>;
+describe('InvestorsListsComponent', () => {
+  let component: InvestorsListsComponent;
+  let fixture: ComponentFixture<InvestorsListsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TrashComponent]
+      imports: [InvestorsListsComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(TrashComponent);
+    fixture = TestBed.createComponent(InvestorsListsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

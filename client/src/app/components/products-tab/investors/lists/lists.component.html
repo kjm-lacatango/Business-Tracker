@@ -1,0 +1,16 @@
+@for (investor of investors; track $index) {
+    <div class="investor">
+        <input type="checkbox" [checked]="investor.isChecked" />
+        <div class="no-checkbox" (click)="edit(investor.id)">
+            <span class="name">
+                <!-- <img src="#" alt="emp" /> -->
+                <icon type="user-icon" />
+                {{ investor.name }}
+            </span>
+            <span>₱ {{ investor.amount }}</span>
+            <span>₱ {{ investor.profit }}</span>
+            <span>{{ investor.updatedOn | date: "MMM dd, YYYY" }}</span>
+            <span class="note">{{ investor.note ? investor.note : "None" }}</span>
+        </div>
+    </div>
+}

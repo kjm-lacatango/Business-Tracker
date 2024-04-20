@@ -2,7 +2,7 @@
     <card>
         <card-header px="2rem" pt="1rem">
             <div class="header">
-                <div><h1>Recycle Bin</h1></div>
+                <div><button class="btn-secondary">Leave Organization</button></div>
                <span>Profile</span>
                <div class="btn">
                     <button class="btn-primary-solid" (click)="onEdit()" *ngIf="isEdit">Edit</button>
@@ -30,10 +30,9 @@
                     </div>
                     <div class="mid">
                         <input-field type="number" label="Age" [control]="age" />
-                        <input-field type="select" [options]="genderOptions" label="Gender" [control]="gender" />
+                        <input-field type="select" cursor="default" [options]="genderOptions" label="Gender" [control]="gender" />
                         <input-field type="text" label="(optional) Logo" [control]="logo" />
                         <input-field type="text" label="Designation" [control]="designation" />
-                        <!-- <input-field type="text" label="Designation" [control]="designation" /> -->
                     </div>
                 </div>
             </div>

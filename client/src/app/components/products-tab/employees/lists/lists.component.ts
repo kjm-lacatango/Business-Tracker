@@ -2,12 +2,14 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Employee } from '../../../../utils/interfaces';
+import { IconsComponent } from '../../../../shared/icons/icons.component';
 
 @Component({
   selector: 'employee-lists',
   standalone: true,
   imports: [
     CommonModule,
+    IconsComponent
   ],
   templateUrl: './lists.component.html',
   styleUrl: './lists.component.scss'
