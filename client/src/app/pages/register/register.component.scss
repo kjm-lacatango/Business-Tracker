@@ -1,0 +1,83 @@
+.register {
+    @apply tw-h-screen tw-w-screen tw-flex tw-justify-center tw-items-center;
+
+    .card {
+        @apply tw-rounded-xl tw-p-4 tw-flex tw-flex-col tw-items-center tw-justify-center tw-border tw-shadow-xl;
+        width: 40rem;
+        position: relative;
+
+        .title {
+            @apply tw-text-2xl tw-font-semibold tw-mb-4;
+        }
+
+        .back {
+            @apply tw-text-gray-300 tw-font-semibold tw-absolute tw-cursor-pointer tw-text-xl;
+            top: .5rem;
+            right: 1rem;
+
+            &:hover {
+                @apply tw-text-red-500;
+            }
+        }
+
+        .main {
+            @apply tw-grid tw-gap-4 tw-items-center tw-mt-4;
+            grid-template-columns: auto 1fr;
+
+            .left {
+                @apply tw-flex tw-flex-col tw-items-center tw-justify-center;
+                width: 15rem;
+
+                .pass {
+                    @apply tw-absolute tw-text-gray-400 tw-text-sm tw-cursor-pointer;
+                    bottom: .4rem;
+                    right: .5rem;
+
+                    &:hover {
+                        @apply tw-text-primary;
+                    }
+                }
+            }
+
+            .right {
+                @apply tw-border-l-2 tw-pl-4;
+
+                &-mid {
+                    @apply tw-grid tw-grid-cols-2 tw-gap-2;
+                    margin-top: .5rem;
+                }
+            }
+        }
+
+        .btn-primary-solid {
+            margin: 2rem auto 0;
+        }
+
+        .footer {
+            @apply tw-text-sm tw-text-gray-500;
+
+            .login {
+                @apply tw-font-semibold tw-cursor-pointer tw-text-gray-600;
+
+                &:hover {
+                    @apply tw-text-gray-400;
+                }
+            }
+        }
+
+        .message {
+            @apply tw-border tw-rounded-md tw-w-full tw-px-4 tw-py-2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &.success {
+                @apply tw-border-primary tw-bg-green-50;
+            }
+
+            &.error {
+                @apply tw-border-red-500 tw-bg-red-50;
+            }
+        }
+    }
+}

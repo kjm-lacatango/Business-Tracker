@@ -24,7 +24,7 @@ export interface Product {
     name: string;
     item: string;
     price?: number;
-    date: Date;
+    updatedOn: Date;
     soldOut: number;
     sales: number;
     notes?: string;
@@ -36,7 +36,7 @@ export interface Activity {
     firstName: string;
     middleName?: string;
     lastName: string;
-    date: Date;
+    updatedOn: Date;
     soldOut: number;
     sales: number;
     product: string;
@@ -49,5 +49,34 @@ export interface User {
     middleName?: string;
     lastName: string;
     email: string;
+    business: string;
     designation: string;
+    profile?: string;
+    note?: string;
 }
+
+export interface ApiResponse<T> {
+    message: string;
+    data: T[];
+    token: string;
+}
+
+export interface Message {
+    status: string;
+    text: string;
+    show: boolean;
+}
+
+export interface Popup {
+    title: string;
+    data: string;
+}
+
+type UserEventError = "GetUserError" | "AddUserError";
+export type UserEvent = "GetUser" | "AddUser" | UserEventError;
+
+type ActivityEventError = "GetActivitiesError" | "AddActivityError";
+export type ActivityEvent = "GetActivities" | "AddActivity" | ActivityEventError;
+
+type ProductEventError = "GetProductsError" | "AddProductError";
+export type ProductEvent = "GetProducts" | "AddProduct" | ProductEventError;

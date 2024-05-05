@@ -26,7 +26,7 @@ import { IconsComponent } from '../../../../shared/icons/icons.component';
 })
 export class ProductComponent {
   productId: string | null = null;
-  products: string[] = ['Coffee', 'Milk Tea', 'Fruit Tea'];
+  products: string[] = ["Milk Tea", "Fruit Tea", "Coffee", "Non-Coffee", "Frappe", "Add Ons"];
   isEditOrAddProduct!: boolean;
   selectedProduct: string = "";
   isDelete: boolean = false;

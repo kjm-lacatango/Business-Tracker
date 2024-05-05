@@ -54,39 +54,39 @@ export class ProductsComponent {
   ];
 
   productsDateOptions: string[] = ["All", "Day", "Week", "Month", "Year"];
-  productsOptions: string[] = ["All", "Liquor", "Coffee", "Milk Tea", "Fruit Tea"];
+  productsOptions: string[] = ["All", "Milk Tea", "Fruit Tea", "Coffee", "Non-Coffee", "Frappe", "Add Ons"];
   categoryOptions: any[] = [
     { text: "Stock", active: true },
     { text: "Employee", active: false },
     { text: "Investors", active: false }
   ];
-  stockOptions: string[] = ["Liquor", "Coffee", "Milk Tea", "Fruit Tea"];
+  stockOptions: string[] = ["Milk Tea", "Fruit Tea", "Coffee", "Non-Coffee", "Frappe", "Add Ons"];
 
   filterProducts: Product[] = [];
   products: Product[] = [
-    {id: '1', isChecked: false, product: 'Liquor', name: "Johnny Doe", item: 'Alfonso', price: 30, date: new Date('02/15/2024'), soldOut: 569, sales: 15000},
-    {id: '2', isChecked: false, product: 'Liquor', name: "John Dale E. Torez", item: 'Alfonso', price: 30, date: new Date('02/15/2024'), soldOut: 569, sales: 15000, notes: "This is from main branch"},
-    {id: '3', isChecked: false, product: 'Coffee', name: "John T. Smith", item: 'Caramel', price: 30, date: new Date('02/15/2024'), soldOut: 569, sales: 15000},
-    {id: '4', isChecked: false, product: 'Fruit Tea', name: "John T. Smith", item: 'Banana', date: new Date('02/15/2024'), soldOut: 569, sales: 15000, notes: "This is from branch 2"},
-    {id: '4', isChecked: false, product: 'Liquor', name: "John T. Smith", item: 'Beer', date: new Date('02/15/2024'), soldOut: 569, sales: 15000, notes: "This is from branch 1"},
-    {id: '4', isChecked: false, product: 'Coffee', name: "John T. Smith", item: 'Caramel', date: new Date('02/15/2024'), soldOut: 569, sales: 15000},
-    {id: '4', isChecked: false, product: 'Milk Tea', name: "John T. Smith", item: 'Caramel', date: new Date('02/15/2024'), soldOut: 569, sales: 15000},
-    {id: '4', isChecked: false, product: 'Fruit Tea', name: "John T. Smith", item: 'Apple', date: new Date('02/15/2024'), soldOut: 569, sales: 15000},
-    {id: '4', isChecked: false, product: 'Fruit Tea', name: "John T. Smith", item: 'Apple', date: new Date('02/15/2024'), soldOut: 569, sales: 15000},
-    {id: '4', isChecked: false, product: 'Milk Tea', name: "John T. Smith", item: 'Caramel', date: new Date('02/15/2024'), soldOut: 569, sales: 15000},
-    {id: '4', isChecked: false, product: 'Fruit Tea', name: "John T. Smith", item: 'Apple', date: new Date('02/15/2024'), soldOut: 569, sales: 15000},
-    {id: '4', isChecked: false, product: 'Fruit Tea', name: "John T. Smith", item: 'Avocado', date: new Date('02/15/2024'), soldOut: 569, sales: 15000, notes: "This is from main branch"},
-    {id: '4', isChecked: false, product: 'Milk Tea', name: "John T. Smith", item: 'Caramel', date: new Date('02/15/2024'), soldOut: 569, sales: 15000},
+    {id: '1', isChecked: false, product: 'Frappe', name: "Johnny Doe", item: 'Double Dutch', price: 30, updatedOn: new Date('02/15/2024'), soldOut: 569, sales: 15000},
+    {id: '2', isChecked: false, product: 'Add Ons', name: "John Dale E. Torez", item: 'Pearl', price: 30, updatedOn: new Date('03/15/2024'), soldOut: 569, sales: 15000, notes: "This is from main branch"},
+    {id: '3', isChecked: false, product: 'Coffee', name: "John T. Smith", item: 'Buko Pandan', price: 30, updatedOn: new Date('03/22/2024'), soldOut: 569, sales: 15000},
+    {id: '4', isChecked: false, product: 'Fruit Tea', name: "John T. Smith", item: 'blueberry', updatedOn: new Date('04/15/2024'), soldOut: 569, sales: 15000, notes: "This is from branch 2"},
+    {id: '4', isChecked: false, product: 'Frappe', name: "John T. Smith", item: 'Double Dutch', updatedOn: new Date('04/12/2024'), soldOut: 569, sales: 15000, notes: "This is from branch 1"},
+    {id: '4', isChecked: false, product: 'Coffee', name: "John T. Smith", item: 'Latte', updatedOn: new Date('04/24/2024'), soldOut: 569, sales: 15000},
+    {id: '4', isChecked: false, product: 'Milk Tea', name: "John T. Smith", item: 'Cookies & Cream', updatedOn: new Date('04/25/2024'), soldOut: 569, sales: 15000},
+    {id: '4', isChecked: false, product: 'Fruit Tea', name: "John T. Smith", item: 'Lychee', updatedOn: new Date('04/27/2024'), soldOut: 569, sales: 15000},
+    {id: '4', isChecked: false, product: 'Fruit Tea', name: "John T. Smith", item: 'Kiwi', updatedOn: new Date('02/15/2023'), soldOut: 569, sales: 15000},
+    {id: '4', isChecked: false, product: 'Milk Tea', name: "John T. Smith", item: 'Buko Pandan', updatedOn: new Date('12/15/2023'), soldOut: 569, sales: 15000},
+    {id: '4', isChecked: false, product: 'Non-Coffee', name: "John T. Smith", item: 'Chocolate', updatedOn: new Date('03/30/2024'), soldOut: 569, sales: 15000},
+    {id: '4', isChecked: false, product: 'Fruit Tea', name: "John T. Smith", item: 'Green Apple', updatedOn: new Date('04/01/2024'), soldOut: 569, sales: 15000, notes: "This is from main branch"},
+    {id: '4', isChecked: false, product: 'Milk Tea', name: "John T. Smith", item: 'Black Forest', updatedOn: new Date('01/29/2024'), soldOut: 569, sales: 15000},
   ];
 
   filterStocks: any[] = [];
   stocks: any[] = [
-    {id: "1", isChecked: false, updatedBy: "Steve Doe", product: "Liquor", item: "Alfonso", addedStock: 100, recentStock: 2000, currentStock: 500, costAdded: 15000, updatedOn: new Date("2023-12-10")},
-    {id: "2", isChecked: false, updatedBy: "Patrice Joy P. Jordan", product: "Liquor", item: "Beer", addedStock: 100, recentStock: 2000, currentStock: 1500, costAdded: 15000, updatedOn: new Date("2024-04-10")},
-    {id: "3", isChecked: false, updatedBy: "Hans L. Smith", product: "Liquor", item: "Gin", currentStock: 2000, addedStock: 100, recentStock: 2000, costAdded: 1500, updatedOn: new Date("2024-04-10")},
-    {id: "4", isChecked: false, updatedBy: "Patrice Joy P. Jordan", product: "Coffee", item: "Caramel", addedStock: 100, recentStock: 2000, currentStock: 1000, costAdded: 15000, updatedOn: new Date("2024-04-10")},
-    {id: "5", isChecked: false, updatedBy: "Clyde Joseph T. Poland", product: "Fruit Tea", item: "Avocado", addedStock: 100, recentStock: 2000, currentStock: 200, costAdded: 15000, updatedOn: new Date("2024-04-10")},
-    {id: "6", isChecked: false, updatedBy: "Clyde Joseph T. Poland", product: "Fruit Tea", item: "Apple", addedStock: 100, recentStock: 2000, currentStock: 1000, costAdded: 15000, updatedOn: new Date("2024-04-10")},
+    {id: "1", isChecked: false, updatedBy: "Steve Doe", product: "Milk Tea", item: "Black Forest", addedStock: 100, recentStock: 2000, currentStock: 500, costAdded: 15000, updatedOn: new Date("2023-12-10")},
+    {id: "2", isChecked: false, updatedBy: "Patrice Joy P. Jordan", product: "Milk Tea", item: "Buko Pandan", addedStock: 100, recentStock: 2000, currentStock: 1500, costAdded: 15000, updatedOn: new Date("2024-04-10")},
+    {id: "3", isChecked: false, updatedBy: "Hans L. Smith", product: "Frappe", item: "Double Dutch", currentStock: 2000, addedStock: 100, recentStock: 2000, costAdded: 1500, updatedOn: new Date("2024-04-10")},
+    {id: "4", isChecked: false, updatedBy: "Patrice Joy P. Jordan", product: "Coffee", item: "Mocha", addedStock: 100, recentStock: 2000, currentStock: 1000, costAdded: 15000, updatedOn: new Date("2024-04-10")},
+    {id: "5", isChecked: false, updatedBy: "Clyde Joseph T. Poland", product: "Fruit Tea", item: "Green Apple", addedStock: 100, recentStock: 2000, currentStock: 200, costAdded: 15000, updatedOn: new Date("2024-04-10")},
+    {id: "6", isChecked: false, updatedBy: "Clyde Joseph T. Poland", product: "Fruit Tea", item: "Kiwi", addedStock: 100, recentStock: 2000, currentStock: 1000, costAdded: 15000, updatedOn: new Date("2024-04-10")},
   ];
 
   filterEmployees: Employee[] = [];
@@ -128,7 +128,7 @@ export class ProductsComponent {
     this.categoryOption.setValue(this.categoryOptions[0].text);
     this.stockOption.setValue(this.stockOptions[0]);
     this.filterEmployees = this.employees;
-    this.filterProducts = this.products;
+    this.filterProducts = this.products.sort((a, b) => a.updatedOn < b.updatedOn ? 1 : a.updatedOn > b.updatedOn ? -1 : 0);
     this.filterStocks = this.stocks;
     this.filterInvestors = this.investors;
   }
@@ -215,7 +215,7 @@ export class ProductsComponent {
       this.filterProducts = this.products;
     } else if (dateOption.toLowerCase() === 'day') {
       this.filterProducts = this.products.filter(item => {
-        const itemDate = new Date(item.date);
+        const itemDate = new Date(item.updatedOn);
         return itemDate.getFullYear() === currentDate.getFullYear() &&
                itemDate.getMonth() === currentDate.getMonth() &&
                itemDate.getDate() === currentDate.getDate();
@@ -227,7 +227,7 @@ export class ProductsComponent {
       lastDayOfWeek.setDate(lastDayOfWeek.getDate() + (6 - lastDayOfWeek.getDay()));
 
       this.filterProducts = this.products.filter(item => {
-        const itemDate = new Date(item.date);
+        const itemDate = new Date(item.updatedOn);
         return itemDate >= firstDayOfWeek && itemDate <= lastDayOfWeek;
       });
     } else if (dateOption.toLowerCase() === 'month') {
@@ -235,7 +235,7 @@ export class ProductsComponent {
       const lastDayOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0);
 
       this.filterProducts = this.products.filter(item => {
-        const itemDate = new Date(item.date);
+        const itemDate = new Date(item.updatedOn);
         return itemDate >= firstDayOfMonth && itemDate <= lastDayOfMonth;
       });
     } else if (dateOption.toLowerCase() === 'year') {
@@ -243,7 +243,7 @@ export class ProductsComponent {
       const lastDayOfYear = new Date(currentDate.getFullYear(), 11, 31);
 
       this.filterProducts = this.products.filter(item => {
-        const itemDate = new Date(item.date);
+        const itemDate = new Date(item.updatedOn);
         return itemDate >= firstDayOfYear && itemDate <= lastDayOfYear;
       });
     }

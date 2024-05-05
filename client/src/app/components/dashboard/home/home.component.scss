@@ -127,6 +127,10 @@
                         @apply tw-h-8;
                         background: rgb(245, 245, 245);
                     }
+
+                    &.item {
+                        @apply tw-justify-start tw-pl-6;
+                    }
                 }
             }
 

@@ -1,0 +1,35 @@
+.landing {
+    @apply tw-h-full;
+
+    .nav {
+        @apply tw-fixed tw-w-full tw-grid tw-items-center tw-bg-white tw-px-4 tw-py-2;
+        grid-template-columns: 1fr 1fr;
+
+        .logo {
+            @apply tw-text-2xl tw-ml-8 tw-text-nowrap;
+            color: transparent;
+            -webkit-text-stroke: 1px rgb(65, 65, 65);
+            font-family: 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        ul {
+            @apply tw-flex tw-items-center tw-justify-center tw-gap-8;
+
+            li {
+                @apply tw-cursor-pointer;
+
+                .btn-primary {
+                    @apply tw-py-1;
+                }
+            }
+        }
+    }
+
+    .main {
+        @apply tw-h-screen tw-w-screen tw-flex tw-justify-center tw-items-center;
+
+        .card {
+            @apply tw-flex tw-flex-col tw-items-start;
+        }
+    }
+}

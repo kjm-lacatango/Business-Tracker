@@ -1,0 +1,68 @@
+.login {
+    @apply tw-h-screen tw-w-screen tw-flex tw-items-center tw-justify-center;
+
+    .card {
+        @apply tw-rounded-xl tw-p-4 tw-flex tw-flex-col tw-justify-center tw-items-center tw-shadow-lg tw-border;
+        width: 25rem;
+        position: relative;
+
+        .inputs {
+            width: 20rem;
+
+            .icon {
+                @apply tw-absolute tw-text-gray-400 tw-text-sm tw-cursor-pointer;
+                bottom: .4rem;
+                right: .5rem;
+
+                &:hover {
+                    @apply tw-text-primary;
+                }
+            }
+        }
+
+        .title {
+            @apply tw-text-2xl tw-font-semibold tw-text-center tw-mb-8;
+        }
+
+        .back {
+            @apply tw-text-gray-300 tw-font-semibold tw-absolute tw-cursor-pointer tw-text-xl;
+            top: .5rem;
+            right: 1rem;
+
+            &:hover {
+                @apply tw-text-red-500;
+            }
+        }
+
+        .btn-primary-solid {
+            margin: 2rem auto 0;
+        }
+
+        .footer {
+            @apply tw-text-sm tw-text-gray-500;
+
+            .register {
+                @apply tw-font-semibold tw-cursor-pointer tw-text-gray-600;
+
+                &:hover {
+                    @apply tw-text-gray-400;
+                }
+            }
+        }
+
+        .message {
+            @apply tw-rounded-md tw-w-full tw-px-4 tw-py-2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &.success {
+                @apply tw-border tw-border-primary tw-bg-green-50;
+            }
+
+            &.error {
+                @apply tw-border tw-border-red-500 tw-bg-red-50;
+            }
+        }
+    }
+}

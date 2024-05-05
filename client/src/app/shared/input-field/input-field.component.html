@@ -1,6 +1,6 @@
 <div class="field" [ngStyle]="{width: width, 'margin-top': mt}">
     <label [for]="label" *ngIf="label">{{ label + ":" }}</label>
-    @if (type === "text" || type === "date" || type === "number") {
+    @if (type === "text" || type === "date" || type === "number" || type === "password") {
         <input class="input" 
             [ngClass]="{error: (control.dirty || control.touched) && control.errors, center: isTextCenter}" 
             [id]="label"

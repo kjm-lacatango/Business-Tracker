@@ -26,7 +26,7 @@ import { IconsComponent } from '../../../../shared/icons/icons.component';
 })
 export class ActivityComponent {
   activityId: string | null = null;
-  products: string[] = ['Coffee', 'Milk Tea', 'Fruit Tea'];
+  products: string[] = ["Milk Tea", "Fruit Tea", "Coffee", "Non-Coffee", "Frappe", "Add Ons"];
 
   form: FormGroup;
   name: FormControl;

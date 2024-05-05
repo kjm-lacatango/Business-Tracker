@@ -4,5 +4,5 @@
             <span (click)="selectTab(tab)" [ngClass]="{active: tab.isActive}">{{ tab.label }}</span>
         }
     </div>
-    <button class="btn-primary">Logout</button>
+    <button class="btn-primary" (click)="onLogout()">Logout</button>
 </div>

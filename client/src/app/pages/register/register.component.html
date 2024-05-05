@@ -1,0 +1,34 @@
+<div class="register">
+    <div class="card">
+        <span class="title">Sign Up</span>
+        <span class="back" (click)="toMain()">X</span>
+        <div class="message success" [ngStyle]="{display: 'none'}">
+            <span>Incorrect email and password</span>
+        </div>
+        <div class="main">
+            <div class="left">
+                <icon type="user-icon" width="8rem" height="8rem" class="icon" />
+                <input-field type="text" label="Email" mt=".5rem" [control]="email" />
+                <input-field [type]="isShowPassword ? 'text' : 'password'" label="Password" mt=".5rem" [control]="password">
+                    <span class="icon pass" (click)="isShowPassword = !isShowPassword">{{ isShowPassword ? 'hide' : 'show'}}</span>
+                </input-field>
+                <input-field [type]="isShowConfirmPassword ? 'text': 'password'" label="Confirm Password" mt=".5rem" [control]="confirmPassword">
+                    <span class="icon pass" (click)="isShowConfirmPassword = !isShowConfirmPassword">{{ isShowConfirmPassword ? 'hide' : 'show'}}</span>
+                </input-field>
+            </div>
+            <div class="right">
+                <input-field type="text" label="FirstName" [control]="firstName" />
+                <input-field type="text" label="MiddleName" mt=".5rem" [control]="middleName" />
+                <input-field type="text" label="LastName" mt=".5rem" [control]="lastName" />
+                <div class="right-mid">
+                    <input-field type="text" label="Age" [control]="age" />
+                    <input-field type="select" label="Gender" [options]="genderOptions" [control]="gender" /> 
+                </div>
+                <input-field type="text" label="Business" mt=".5rem" [control]="business" />
+                <input-field type="select" label="Position" mt=".5rem" [options]="positionOptions" [control]="position" />
+            </div>
+        </div>
+        <button class="btn-primary-solid" (click)="onSignUp()" [disabled]="form.invalid">Sign Up</button>
+        <span class="footer">Already have an account? <span class="login" (click)="toSignIn()">Sign In</span></span>
+    </div>
+</div>

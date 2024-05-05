@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { UserService } from '../../services/user.service';
 
 interface Tab {
   label: string;
@@ -26,7 +27,11 @@ export class SidebarComponent {
     {label: "Profile", route: "profile", isActive: false},
   ];
 
-  constructor(private router: Router, private route: ActivatedRoute) {}
+  constructor(
+    private router: Router, 
+    private route: ActivatedRoute,
+    private user: UserService
+  ) {}
 
   ngOnInit() {
     this.routerEvents = this.router.events.subscribe(val => {
@@ -40,6 +45,10 @@ export class SidebarComponent {
 
   ngOnDestroy() {
     this.routerEvents.unsubscribe();
+  }
+
+  onLogout() {
+    this.router.navigate(["/main"], { relativeTo: this.route });
   }
 
   selectTab(tab: Tab) {

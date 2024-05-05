@@ -11,7 +11,7 @@
         <span>{{ product.price ? "₱ " + product.price : "None" }}</span>
         <span>{{ product.soldOut }}</span>
         <span>₱ {{ product.sales }}</span>
-        <span>{{ product.date | date: "MMM dd, YYYY" }}</span>
+        <span>{{ product.updatedOn | date: "MMM dd, YYYY" }}</span>
         <span class="note">{{ product.notes ? product.notes : "None" }}</span>
     </div>
 </div>

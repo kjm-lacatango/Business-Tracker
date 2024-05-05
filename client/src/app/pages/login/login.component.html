@@ -1,3 +1,19 @@
-<div>
-    login
+<div class="login">
+    <div class="card">
+        <span class="title">Sign In</span>
+        <span class="back" (click)="toMain()">X</span>
+        <div class="message" [ngClass]="message.status" [ngStyle]="{display: message.show ? 'flex' : 'none'}">
+            <span>{{ message.text }}</span>
+        </div>
+        <div class="inputs">
+            <input-field type="text" label="Email" mt=".5rem" [control]="email" />
+            <input-field [type]="isShowPassword ? 'text' : 'password'" label="Password" mt=".5rem" [control]="password">
+                <span class="icon" (click)="isShowPassword = !isShowPassword">{{isShowPassword ? "hide" : "show"}}</span>
+            </input-field>
+            <input-field type="text" label="Business" mt=".5rem" [control]="business" />
+            <input-field type="select" label="Designation" mt=".5rem" [options]="designationOptions" [control]="designation" />
+        </div>
+        <button class="btn-primary-solid" (click)="onSignIn()" [disabled]="isLoading || form.invalid">Sign In</button>
+        <span class="footer">Already have an account? <span class="register" (click)="toSignup()">Sign Up</span></span>
+    </div>
 </div>

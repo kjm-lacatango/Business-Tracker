@@ -1,0 +1,20 @@
+.popup {
+    @apply tw-flex tw-items-center tw-justify-center;
+
+    .backdrop {
+        @apply tw-top-0 tw-left-0 tw-z-20 tw-h-screen tw-w-screen;
+        background: #0005;
+    }
+
+    .card {
+        @apply tw-bg-white tw-absolute tw-z-30 tw-rounded-xl tw-flex tw-flex-col tw-gap-4;
+        top: 50%;
+        left: 50%;
+        padding: 2rem 2rem 1rem;
+        transform: translate(-50%, -50%);
+
+        .btn {
+            @apply tw-flex tw-gap-2 tw-justify-end;
+        }
+    }
+}

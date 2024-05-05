@@ -1,0 +1,10 @@
+<div class="popup" *ngIf="isShow">
+    <div class="backdrop" [ngStyle]="{position: isShow ? 'absolute' : ''}" (click)="isShow = false"></div>
+    <div class="card">
+        <span>Are you sure you want to delete this field?</span>
+        <div class="btn">
+            <button class="btn-primary-solid">Yes</button>
+            <button class="btn-secondary-solid" (click)="onClose()">No</button>
+        </div>
+    </div>
+</div>

@@ -40,30 +40,37 @@ export class HomeComponent {
     }
   }
 
-  productOptions: string[] = ["All", "Liquor", "Cigarette", "Snack", "Soft Drink"];
+  productOptions: string[] = ["All", "Milk Tea", "Fruit Tea", "Coffee", "Non-Coffee", "Frappe", "Add Ons"];
   filterProductItems: any[] = [];
   productItems: any[] = [
-    {id: "1", product: "Liquor", item: "Alfonso", capital: "P 15,000", profit: "P 30,000"},
-    {id: "2", product: "Liquor", item: "Beer", capital: "P 15,000", profit: "P 30,000"},
-    {id: "3", product: "Liquor", item: "Gin", capital: "P 15,000", profit: "P 30,000"},
-    {id: "4", product: "Cigarette", item: "Marlboro", capital: "P 10,000", profit: "P 30,000"},
-    {id: "5", product: "Cigarette", item: "Hope", capital: "P 15,000", profit: "P 30,000"},
-    {id: "6", product: "Cigarette", item: "Champion", capital: "P 15,000", profit: "P 30,000"},
-    {id: "7", product: "Soft Drink", item: "Coke Mismo", capital: "P 10,000", profit: "P 30,000"},
-    {id: "8", product: "Soft Drink", item: "Coke Zero", capital: "P 10,000", profit: "P 30,000"},
-    {id: "9", product: "Soft Drink", item: "1.5 Coke", capital: "P 10,000", profit: "P 30,000"},
-    {id: "10", product: "Soft Drink", item: "1.65 Coke", capital: "P 10,000", profit: "P 30,000"},
-    {id: "11", product: "Soft Drink", item: "Sprite Mismo", capital: "P 10,000", profit: "P 30,000"},
-    {id: "12", product: "Soft Drink", item: "1.5 Sprite", capital: "P 10,000", profit: "P 30,000"},
-    {id: "13", product: "Soft Drink", item: "1.65 Sprite", capital: "P 10,000", profit: "P 30,000"},
-    {id: "14", product: "Soft Drink", item: "Royal Mismo", capital: "P 10,000", profit: "P 30,000"},
-    {id: "15", product: "Soft Drink", item: "1.5 Royal", capital: "P 10,000", profit: "P 30,000"},
-    {id: "16", product: "Soft Drink", item: "1.65 Royal", capital: "P 10,000", profit: "P 30,000"},
-    {id: "17", product: "Snack", item: "Piatos", capital: "P 15,000", profit: "P 30,000"},
-    {id: "18", product: "Snack", item: "Nova", capital: "P 15,000", profit: "P 30,000"},
-    {id: "19", product: "Snack", item: "Tortillos", capital: "P 15,000", profit: "P 30,000"},
-    {id: "20", product: "Snack", item: "Green Piece", capital: "P 15,000", profit: "P 30,000"},
-    {id: "21", product: "Snack", item: "Cracklings", capital: "P 15,000", profit: "P 30,000"},
+    {id: "1", product: "Milk Tea", item: "Black Forest", capital: "P 15,000", profit: "P 30,000"},
+    {id: "4", product: "Milk Tea", item: "Cookies & Cream", capital: "P 10,000", profit: "P 30,000"},
+    {id: "2", product: "Milk Tea", item: "Buko Pandan", capital: "P 15,000", profit: "P 30,000"},
+    {id: "3", product: "Milk Tea", item: "Choco Mousse", capital: "P 15,000", profit: "P 30,000"},
+    {id: "5", product: "Milk Tea", item: "Dark Chocolate", capital: "P 15,000", profit: "P 30,000"},
+    {id: "6", product: "Milk Tea", item: "Mango", capital: "P 15,000", profit: "P 30,000"},
+    {id: "7", product: "Milk Tea", item: "Matcha", capital: "P 10,000", profit: "P 30,000"},
+    {id: "8", product: "Milk Tea", item: "Okinawa", capital: "P 10,000", profit: "P 30,000"},
+    {id: "9", product: "Milk Tea", item: "Red Velvet", capital: "P 10,000", profit: "P 30,000"},
+    {id: "11", product: "Fruit Tea", item: "Green Apple", capital: "P 10,000", profit: "P 30,000"},
+    {id: "12", product: "Fruit Tea", item: "Lychee", capital: "P 10,000", profit: "P 30,000"},
+    {id: "13", product: "Fruit Tea", item: "Passion Fruit", capital: "P 10,000", profit: "P 30,000"},
+    {id: "14", product: "Fruit Tea", item: "Strawberry", capital: "P 10,000", profit: "P 30,000"},
+    {id: "10", product: "Fruit Tea", item: "Blueberry", capital: "P 10,000", profit: "P 30,000"},
+    {id: "15", product: "Fruit Tea", item: "Kiwi", capital: "P 10,000", profit: "P 30,000"},
+    {id: "16", product: "Coffee", item: "Latte", capital: "P 10,000", profit: "P 30,000"},
+    {id: "17", product: "Coffee", item: "Vanilla", capital: "P 15,000", profit: "P 30,000"},
+    {id: "18", product: "Coffee", item: "Mocha", capital: "P 15,000", profit: "P 30,000"},
+    {id: "19", product: "Coffee", item: "Salted Caramel", capital: "P 15,000", profit: "P 30,000"},
+    {id: "20", product: "Non-Coffee", item: "Matcha Latte", capital: "P 15,000", profit: "P 30,000"},
+    {id: "21", product: "Non-Coffee", item: "Chocolate", capital: "P 15,000", profit: "P 30,000"},
+    {id: "21", product: "Frappe", item: "Buko Pandan", capital: "P 15,000", profit: "P 30,000"},
+    {id: "21", product: "Frappe", item: "Double Dutch", capital: "P 15,000", profit: "P 30,000"},
+    {id: "21", product: "Add Ons", item: "Crystal", capital: "P 15,000", profit: "P 30,000"},
+    {id: "21", product: "Add Ons", item: "Pearl", capital: "P 15,000", profit: "P 30,000"},
+    {id: "21", product: "Add Ons", item: "Whipped Cream", capital: "P 15,000", profit: "P 30,000"},
+    {id: "21", product: "Add Ons", item: "Coffee Jelly", capital: "P 15,000", profit: "P 30,000"},
+    {id: "21", product: "Add Ons", item: "Cream Cheese", capital: "P 15,000", profit: "P 30,000"},
   ];
 
   tabs: Tab[] = [{ text: "Notifications", active: true}, { text: "Members", active: false}];
@@ -126,10 +133,11 @@ export class HomeComponent {
 
   onSelectProduct() {
     if (this.product.value.toLowerCase() === "all") {
-      this.filterProductItems = this.productItems;
+      this.filterProductItems = this.productItems.sort((a, b) => a.item > b.item ? 1 : a.item < b.item ? -1 : 0);
       return;
     }
-    this.filterProductItems = this.productItems.filter(item => item.product.toLowerCase() === this.product.value.toLowerCase());
+    this.filterProductItems = this.productItems.filter(item => item.product.toLowerCase() === this.product.value.toLowerCase())
+    .sort((a, b) => a.item > b.item ? 1 : a.item < b.item ? -1 : 0);
   }
 
   onDoubleClick(id: string, fromMember?: string) {

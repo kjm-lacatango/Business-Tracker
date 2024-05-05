@@ -61,7 +61,7 @@
                     </div>
                     <div class="item-list scroll">
                         <div class="product-card" *ngFor="let product of filterProductItems; even as even">
-                            <span class="span" [ngClass]="{even: even}">{{ product.item }}</span>
+                            <span class="span item" [ngClass]="{even: even}">{{ product.item }}</span>
                             <span class="span" [ngClass]="{even: even}">{{ product.capital }}</span>
                             <span class="span" [ngClass]="{even: even}">{{ product.profit }}</span>
                         </div>
